@@ -430,7 +430,7 @@ Funkcje ESQL:
 3.	Kliknij dwukrotnie na węzeł `XML2JSON`, aby otworzyć skrypt ESQL. W nowym oknie otworzy się standardowy skrypt.
 4.	Zaznacz cały domyślny skrypt klikając **Ctrl+A** i usuń go.
 5.	W puste miejsce wklej następujące komendy:
-
+```
     CREATE COMPUTE MODULE ShippingService_XML2JSON
         CREATE FUNCTION Main() RETURNS BOOLEAN
         BEGIN
@@ -457,7 +457,7 @@ Funkcje ESQL:
             SET outRef.Customer.shipTimestamp = CURRENT_TIMESTAMP;  
         END;
     END MODULE;
-
+```
 6.	Przeanalizuj powyższy skrypt ESQL i uzupełnij:
 
 - Komentarze opisujące poszczególne fragmenty skryptu.
