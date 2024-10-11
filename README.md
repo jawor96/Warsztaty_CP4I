@@ -1,20 +1,12 @@
 # Cloud Pak for Integration - Warsztaty praktyczne
 
-**Lokalizacja:** MS Teams
-
-**Data:** 
-
-### Agenda warsztatów:
-
-
 ### Środowisko Laboratoryjne
 
-W sprawie środowiska laboratoryjnego proszę o kontatk.
+Instrukcję do pobrania środowiska deweloperskiego IBM App Connect Toolkit znajdziesz [TUTAJ](https://www.ibm.com/docs/en/app-connect/13.0?topic=enterprise-download-ace-developer-edition-get-started).
 
 ### Laboratoria:
 
-1. Lab1_TA
-2. Lab2_Liberty_OCP
+1. [LAB1_ACEToolkit_Base](https://github.com/jawor96/Warsztaty_CP4I/tree/main/LAB1_ACEToolkit_Base)
 
 ### Prezentacje
 

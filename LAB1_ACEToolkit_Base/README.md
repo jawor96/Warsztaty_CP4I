@@ -39,9 +39,9 @@ Schemat XML (`ShippingShemaValidation.xsd`) opisujący komunikat wygląda nastę
     <xs:complexType>
         <xs:sequence>
             <xs:element name="userName" type="xs:string"/>
-        <xs:element name="prodID" type="xs:string"/>
-        <xs:element name="quantity" type="xs:positiveInteger"/>
-        <xs:element name="shippingMethod" type="xs:string"/>
+            <xs:element name="prodID" type="xs:string"/>
+            <xs:element name="quantity" type="xs:positiveInteger"/>
+            <xs:element name="shippingMethod" type="xs:string"/>
         </xs:sequence>
     </xs:complexType>
     </xs:element>
@@ -62,19 +62,19 @@ Dodatkowo klient końcowy naszego komunikatu wysyłki wymaga od nas wiadomości 
 ## Wymagania
 
 - Środowisko warsztatowe z zainstalowanym [IBM App Connect Enterprise Toolkit (ACET)](https://www.ibm.com/docs/en/app-connect/12.0?topic=enterprise-download-ace-developer-edition-get-started).
-- Dostęp do plików ćwiczeń laboratoryjnych [LAB1_FILES](https://github.com/jawor96/Warsztaty_CP4I/tree/main/LAB1_ACEToolkit_Base/labfiles).
+- Dostęp do plików ćwiczeń laboratoryjnych [LAB1_Files](https://github.com/jawor96/Warsztaty_CP4I/tree/main/LAB1_ACEToolkit_Base/labfiles).
 - Dostęp do narzędzia do testowania komunikacji (Postman lub SoapUI).
 
 ## Przygotowanie środowiska
 
 Na tym etapie uruchomisz aplikacje IBM App Connect.
 
-1.	Kliknij w Search w pasku narzędzi i wyszukaj aplikacji IBM App Connect Enterprise Toolkit 13.
+1.	Kliknij w Search w pasku narzędzi i wyszukaj aplikacji IBM App Connect Enterprise Toolkit 13/12.
 2.	Kliknij w aplikacje, aby ją uruchomić.
 
 ![](../images/001.png)
 
-3.	Zostaw domyślny **Workspace**: `<path-to-ACE>\IBM\ACET13\workspace` i kliknij **Launch**. Aplikacja ACET uruchomi się po chwili.
+3.	Zostaw domyślny **Workspace**: `<path-to-ACE>\IBM\ACET13(12)\workspace` i kliknij **Launch**. Aplikacja ACET uruchomi się po chwili.
 
 ![](../images/002.png)
 
@@ -113,7 +113,9 @@ Na tym etapie skopiujesz potrzebne do wykonania zadania pliki z folderu `<path-t
 
 3.	Kliknij prawym przyciskiem myszki i kliknij **Copy**.
 4.	Wróć do aplikacji **ACET**, a następnie najedz myszką na aplikacje **ShippingApp**, kliknij prawym przyciskiem myszy, a następnie kliknij **Paste**.
+
 ![](../images/007.png)
+
 5.	W ten sposób skopiowałeś potrzebne do zadania pliki.
 
 ## Dodanie węzłów przepływu wiadomości
@@ -208,7 +210,7 @@ Na tym etapie skonfigurujesz węzły i dodasz połączenia między poszczególny
 - Połącz terminal **Route.Train** z terminalem **HTTPRequest1.In**
 
 > [!NOTE]
-> Wyjście *Route*.Default wykorzystane jest w przypadku, gdy żadna z reguł filtra nie jest spełniona.
+> Wyjście **Route.Default** wykorzystane jest w przypadku, gdy żadna z reguł filtra nie jest spełniona.
 
 ![](../images/021.png)
 
@@ -218,7 +220,7 @@ Na tym etapie skonfigurujesz węzły i dodasz połączenia między poszczególny
 
 ![](../images/022.png)
 
-- Następnie przejdź do zakładki *Output Message Parsing* i w *Message domain* wybierz XMLNSC: For XML messages…
+- Następnie przejdź do zakładki *Output Message Parsing* i w *Message domain* wybierz `XMLNSC: For XML messages…`
 
 ![](../images/023.png)
 
@@ -265,7 +267,7 @@ Na tym etapie skonfigurujesz węzły i dodasz połączenia między poszczególny
 - Połącz terminal **Train.Out** z terminalem **HTTPReply.In**
 
 7.	Węzły HTTP Reply1 oraz HTTP Reply nie potrzebują dodatkowej konfiguracji.
-8.	Zapisz Skonfigurowany przepływ klikając CTRL+S.
+8.	Zapisz skonfigurowany przepływ klikając **CTRL+S**.
 9.	Połączenia powinny wyglądać jak na załączonym obrazku:
 
 ![](../images/031.png)
@@ -285,15 +287,15 @@ Na tym etapie stworzysz nowy serwer integracyjny z poziomu IBM App Connect Enter
 2.	Po zaakceptowaniu uprawnień administracyjnych pojawi się nam konsola ACE 12/13.
 3.	Aby stworzyć nowy Integration Node wpisz komendę i kliknij Enter:
 
-    mqsicreatebroker WORKNODE
+    `mqsicreatebroker WORKNODE`
 
 4.	Aby wystartować Integration Node wpisz komendę i kliknij Enter:
 
-    mqsistart WORKNODE
+    `mqsistart WORKNODE`
 
 5.	Poczekaj aż WORKNODE wystartuje i stwórz Integration Server pod WORKNODE wykonując komendę:
 
-    mqsicreateexecutiongroup WORKNODE -e IntServer
+    `mqsicreateexecutiongroup WORKNODE -e IntServer`
 
 ![](../images/034.png)
 
@@ -392,7 +394,7 @@ Polecenia ESQL:
 
 - [CREATE LASTCHILD OF …. DOMAIN](https://www.ibm.com/docs/en/app-connect/12.0?topic=statements-create-statement) – polecenie, które zamienia format ostatecznego stanu istniejącego pola.
 - [CREATE FIELD](https://www.ibm.com/docs/en/app-connect/12.0?topic=statements-create-statement) – polecenie definiująca nową pole.
-- [DECLARE … REFERENCE TO](https://www.ibm.com/docs/en/app-connect/12.0?topic=statements-declare-statement) … - polecenie definiuje zmienną jako odniesienie do innego pola.
+- [DECLARE … REFERENCE TO …](https://www.ibm.com/docs/en/app-connect/12.0?topic=statements-declare-statement) - polecenie definiuje zmienną jako odniesienie do innego pola.
 - [SET](https://www.ibm.com/docs/en/app-connect/12.0?topic=statements-set-statement) – polecenie przypisuje wartość zmiennej.
 
 Funkcje ESQL:
@@ -431,7 +433,6 @@ Funkcje ESQL:
 
     CREATE COMPUTE MODULE ShippingService_XML2JSON
         CREATE FUNCTION Main() RETURNS BOOLEAN
-        
         BEGIN
             -- Dodaj swój komentarz
             CREATE LASTCHILD OF OutputRoot DOMAIN('JSON');
@@ -455,7 +456,6 @@ Funkcje ESQL:
             SET outRef.Customer.shipID = int_id;
             SET outRef.Customer.shipTimestamp = CURRENT_TIMESTAMP;  
         END;
-        
     END MODULE;
 
 6.	Przeanalizuj powyższy skrypt ESQL i uzupełnij:
