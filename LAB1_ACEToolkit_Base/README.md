@@ -62,7 +62,7 @@ Dodatkowo klient końcowy naszego komunikatu wysyłki wymaga od nas wiadomości 
 ## Wymagania
 
 - Środowisko warsztatowe z zainstalowanym [IBM App Connect Enterprise Toolkit (ACET)](https://www.ibm.com/docs/en/app-connect/12.0?topic=enterprise-download-ace-developer-edition-get-started).
-- Dostęp do plików ćwiczeń laboratoryjnych [LAB1_Files](https://github.com/jawor96/Warsztaty_CP4I/tree/main/LAB1_ACEToolkit_Base/labfiles).
+- Pobrany i rozpakowany folder z plikami potrzebnymi do ćwiczeń laboratoryjnych [labfiles](https://github.com/jawor96/Warsztaty_CP4I/tree/main/LAB1_ACEToolkit_Base/labfiles).
 - Dostęp do narzędzia do testowania komunikacji (Postman lub SoapUI).
 
 ## Przygotowanie środowiska
