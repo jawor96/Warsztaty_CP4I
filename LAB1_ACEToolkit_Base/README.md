@@ -6,13 +6,13 @@
 
 ## Opis ćwiczenia
 
-W tym ćwiczeniu stworzysz aplikacje integracyjną „ShippingApp”, która w pierwszej kolejności skieruje komunikat dt. wysyłki towaru w formacie XML od klienta do odpowiedniej usługi obsługującej zgłoszenie w zależności od metody wysyłki, a następnie stransformuje wiadomość do formatu JSON oraz wzbogaci komunikat o informacje dt. transakcji wysyłki. W tym celu wykorzystasz węzeł *Route*, aby odpowiednio przekierować komunikat oraz moduł *Compute* do transformacji danych..
+W tym ćwiczeniu stworzysz aplikacje integracyjną „ShippingApp”, która w pierwszej kolejności skieruje komunikat dt. wysyłki towaru w formacie XML od klienta do odpowiedniej usługi obsługującej zgłoszenie w zależności od metody wysyłki, a następnie stransformuje wiadomość do formatu JSON oraz wzbogaci komunikat o informacje dt. transakcji wysyłki. W tym celu wykorzystasz węzeł *Route*, aby odpowiednio przekierować komunikat oraz moduł *Compute* do transformacji danych.
 
 ## Cele
 
 Po ukończeniu tego ćwiczenia powinieneś potrafić:
 - Użyć węzła *Route* do przekierowania komunikatu.
-- Użyć Konstruktora wyrażeń XPath, aby zdefiniować wzorzec filtra.
+- Użyć konstruktora wyrażeń XPath, aby zdefiniować wzorzec filtra.
 - Utworzyć niestandardowe terminale wyjściowe w węźle *Route*.
 - Przetestować przepływ komunikatu z wykorzystaniem narzędzia *Flow exerciser*.
 - Stworzyć serwer integracyjny pod node’m integracyjnym.
@@ -62,7 +62,7 @@ Dodatkowo klient końcowy naszego komunikatu wysyłki wymaga od nas wiadomości 
 ## Wymagania
 
 - Środowisko warsztatowe z zainstalowanym [IBM App Connect Enterprise Toolkit (ACET)](https://www.ibm.com/docs/en/app-connect/12.0?topic=enterprise-download-ace-developer-edition-get-started).
-- Pobrany i rozpakowany folder z plikami potrzebnymi do ćwiczeń laboratoryjnych [labfiles](https://github.com/jawor96/Warsztaty_CP4I/tree/main/LAB1_ACEToolkit_Base/labfiles).
+- Pobrany i rozpakowany folder z plikami potrzebnymi do ćwiczeń laboratoryjnych [labfiles](https://github.com/jawor96/Warsztaty_CP4I/tree/main/labfiles).
 - Dostęp do narzędzia do testowania komunikacji (Postman lub SoapUI).
 
 ## Przygotowanie środowiska
