@@ -74,7 +74,7 @@ Biblioteka **EDIFACT-Transport-SWGTECH-D96A** zawiera parę schematów DFDL, kt�
 
 ![](../images/105.PNG)
 
-Renderowanie każdego komponentu logicznego jest opisane przez właściwości DFDL w zakładce "**Representation Properties**". Właściwości DFDL mogą być określone lokalnie na komponencie lub mogą być dziedziczone z predefiniowanych zestawów właściwości DFDL. Odziedziczone właściwości mają ikonę "drzewka" pokazaną obok nich. Najechanie kursorem na ikonę ujawnia, gdzie zdefiniowana jest właściwość. W tym schemacie odziedziczone właściwości są uzyskiwane ze schematu **IBM_EDI_Format.xsd** w bibliotece *EDIFACT-Common*.
+Renderowanie każdego komponentu logicznego jest opisane przez właściwości DFDL w zakładce **Representation Properties**. Właściwości DFDL mogą być określone lokalnie na komponencie lub mogą być dziedziczone z predefiniowanych zestawów właściwości DFDL. Odziedziczone właściwości mają ikonę "drzewka" pokazaną obok nich. Najechanie kursorem na ikonę ujawnia, gdzie zdefiniowana jest właściwość. W tym schemacie odziedziczone właściwości są uzyskiwane ze schematu **IBM_EDI_Format.xsd** w bibliotece *EDIFACT-Common*.
 
 2. Ponieważ ustawienia ograniczników w wymianie EDIFACT mogą się różnić, właściwości *DFDL Terminator*, *Separator*, *Escape Character* i *Decimal Separator* są ustawiane dynamicznie przy użyciu wyrażeń DFDL, które odnoszą się do zmiennych DFDL. Zmienne mają wartości domyślne i są zastępowane przez ustawienia w segmencie *UNA*, jeśli są obecne. Można to zobaczyć, rozwijając element *UNA* w *Interchange*, wybierając dowolny element podrzędny i klikając kartę **Variables** obok opcji **Representation Properties**.
 
@@ -283,7 +283,7 @@ Wykorzystamy ten model danych jako docelowy format wiadomości wyjściowej.
 | UNZ-E0020-InterchangeControlReference | InterchangeTrailer-InterchangeControlReference |
 
 <details>
-<summary><b><font color="dodgerblue">Kliknij, aby otowrzyć:</font></b> Instrukcja połączenia poszczególnych komponentów "**Mapy**"</summary>
+<summary><b><font color="dodgerblue">Kliknij, aby otowrzyć:</font></b> Instrukcja połączenia poszczególnych komponentów "Mapy"</summary>
 
 1. Połączenia w sekcji **InterchangeHeader**.
 
@@ -321,6 +321,42 @@ Wykorzystamy ten model danych jako docelowy format wiadomości wyjściowej.
 - Zapisz **Mapę**, klikając **Ctrl + S**
 - Wróć do zakładki przepływu i zapisz przepływ,klikając **Ctrl + S**.
 
-## Konfoguracja MQ
+## Konfiguracja MQ
+
+W tym etapie skonfigurujemy menadżera kolejek MQ (QM1) oraz lokalną kolejkę Q1, a takrze port do nasłuchiwania. Następnie w **ACET** skonfigurujemy politykę, która pozwoli nam się połączyć z lokalnym MQ. 
+
+> [!WARNING]
+> Na tym etapie zakładamy, że IBM MQ Server oraz IBM MQ Explorer został zainstalowany.
+
+1. Otwórz `CMD` jako administrator, a następnie wykonaj komendę `dspmqver`. Wyświetlą się informacje dotyczące instalacji MQ.
+
+![](../images/140.PNG)
+
+2. Stwórz menadżera kolejek MQ (QM1), wykonując komendę `crtmqm QM1`.
+
+![](../images/141.PNG)
+
+3. Po pomyślnym stowrzeniu QM1, uruchom go wykonując komendę `strmqm QM1`.
+
+![](../images/142.PNG)
+
+4. Wykonaj komendę `runmqsc QM1`.
+
+![](../images/143.PNG)
+
+5. Stwórz kolejkę Q1, wykonując komendę `def QL(Q1)`.
+
+![](../images/144.PNG)
+
+6. Wyświetl szczegóły kolejki komendą `dis QL(Q1)`.
+
+![](../images/145.PNG)
+
+7. Zakończ tryb MQSC, wykonując komendę `end`.
+8. Wyszukaj i otwórz **MQ Explorer**.
+
+![](../images/146.PNG)
+
+
 
 ## Tworzenie aplikacji integracyjnej EDI2XML_App c.d.
