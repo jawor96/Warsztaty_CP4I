@@ -24,15 +24,17 @@ Po ukończeniu tego ćwiczenia powinieneś potrafić:
 
 Firma logistyczna ma dwa systemy obsługujące przesyłki w zależności od metody wysyłki – *Sea* (wysyłka morska) oraz *Train* (wysyłka lądowa: kolej). Potrzebujemy stworzyć aplikacje integracyjną, która przekieruje zamówienie złożone przez klienta do odpowiedniego systemu wysyłkowego. Komunikat zamówienia jest w formacie XML i zawiera następujące informacje: identyfikator użytkowania (`userID`), nazwa użytkowania (`userName`), identyfikator produktu (`prodID`), ilość zamówionego produktu (`quantity`) oraz metodę wysyłki (`shippingMethod`). Przykład komunikatu:
 
+```xml
     <Customer>
         <userName>TestUserSea</userName>
         <prodID>TV001</prodID>
         <quantity>20</quantity>
         <shippingMethod>Sea</shippingMethod>
     </Customer>
-
+```
 Schemat XML (`ShippingShemaValidation.xsd`) opisujący komunikat wygląda następująco:
 
+```xml
     <?xml version="1.0" encoding="UTF-8" ?>
     <xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema">
     <xs:element name="Customer">
@@ -46,7 +48,7 @@ Schemat XML (`ShippingShemaValidation.xsd`) opisujący komunikat wygląda nastę
     </xs:complexType>
     </xs:element>
     </xs:schema>
-
+```
 W aplikacji integracyjnej dodasz węzeł *Route* do przepływu komunikatu, dzięki czemu odpowiedzi systemu na wiadomość będą udzielane na podstawie metody wysyłki (`shippingMethod`) w komunikacie.
 
 W tym ćwiczeniu zdefiniujesz terminale wyjściowe, aby uzyskać kontrolę nad przepływem komunikatów.
@@ -365,6 +367,7 @@ Dla tego testu wiadomość została przekierowana do systemu wysyłkowego **Sea*
 W tej części ćwiczenia będziesz transformować komunikat otrzymany z systemu wysyłkowego w formacie XML do komunikatu dla klienta w formacie JSON. Przy okazji wzbogacisz komjnikat o dwie informacje dt. ID wysyłki oraz dacie wykonania wysyłki.
 Przykładowy komunikat zwrotny z systemu wysyłkowego wygląda następująco:
 
+```xml
     <?xml version="1.0" encoding="UTF-8"?>
     <Logistics>
         <userName>TestUserSea</userName>
@@ -373,9 +376,11 @@ Przykładowy komunikat zwrotny z systemu wysyłkowego wygląda następująco:
         <shippingMethod>Train</shippingMethod>
         <shippingStatus>Train Shipping Successful</shippingStatus>
     </Logistics>
+```
 
 Naszym zadaniem jest transformacja komunikatu do następującego formatu JSON:
 
+```json
     {
         "Customer": {
             "userName": "TestUserSea",
@@ -387,6 +392,7 @@ Naszym zadaniem jest transformacja komunikatu do następującego formatu JSON:
             "shipTimestamp": "2024-07-12 13:19:20.977185"
         }
     }
+```
 
 Dodane zostały pola `shipID` oraz `shipTimestamp`. Operacje transformacji wykonasz wykorzystując skrypt napisany w języku ESQL działający w węźle **Compute**. W zadaniu wykorzystasz następujące instrukcje i funkcje ESQL:
 
@@ -430,7 +436,8 @@ Funkcje ESQL:
 3.	Kliknij dwukrotnie na węzeł `XML2JSON`, aby otworzyć skrypt ESQL. W nowym oknie otworzy się standardowy skrypt.
 4.	Zaznacz cały domyślny skrypt klikając **Ctrl+A** i usuń go.
 5.	W puste miejsce wklej następujące komendy:
-```
+
+```sql
     CREATE COMPUTE MODULE ShippingService_XML2JSON
         CREATE FUNCTION Main() RETURNS BOOLEAN
         BEGIN
@@ -458,6 +465,7 @@ Funkcje ESQL:
         END;
     END MODULE;
 ```
+
 6.	Przeanalizuj powyższy skrypt ESQL i uzupełnij:
 
 - Komentarze opisujące poszczególne fragmenty skryptu.
@@ -554,6 +562,7 @@ Podczas wykonywania ćwiczenia dowiedziałeś się jak tworzy się aplikacje int
 
 ## Skrypty
 
+```sql
     CREATE COMPUTE MODULE ShippingService_XML2JSON
         CREATE FUNCTION Main() RETURNS BOOLEAN
         
@@ -582,3 +591,4 @@ Podczas wykonywania ćwiczenia dowiedziałeś się jak tworzy się aplikacje int
         END;
         
     END MODULE;
+```

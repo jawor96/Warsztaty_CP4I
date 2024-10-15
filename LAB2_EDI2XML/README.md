@@ -135,3 +135,192 @@ Obie biblioteki współdzielone można wdrożyć do węzła integracyjnego w cel
 
 ## Tworzenie aplikacji integracyjnej EDI2XML_App
 
+W tej cześci ćwiczenia stworzysz apliakcje **EDI2XML_App**, która monitoruje folder `tmp`, pobiera plik `.edi`, mapuje wiadomość na format XML, a następnie wstawia do kolejki MQ.
+
+1. Tworzenie przepływu aplikacji:
+
+- Wróć do widoku **integration Development**, klikając ikonę w prawym górnym rogu.
+
+![](../images/117.PNG)
+
+- Kliknij **New..**, a następnie **Application**.
+
+![](../images/118.PNG)
+
+- Nazwij aplikacje `EDI2XML_App` i kliknij **Next**.
+
+![](../images/119.PNG)
+
+- Dodaj biblioteki ze schematem DFDL wiadomości EDIFACT i kliknij **Finish**.
+
+![](../images/120.PNG)
+
+- W powstałej aplikacji kliknij **(New..)**, a następnie **Message Flow**.
+
+![](../images/121.PNG)
+
+- Nazwij przeływ: `EDI2XML_MsgFlow`.
+
+![](../images/122.PNG)
+
+2. Konfiguracja węzła **FileInput**:
+
+- W zakładce Palette w komórce `<Search>` wpisz `file`. Pojawią się węzły związane z przetwarzaniem plików.
+- Kliknij **FileInput**, a następnie najedź kursorem na wolną przestrzeń po prawej stronie i kliknij ponownie lewym przyciskiem myszy. W ten sposób dodałeś węzeł **FileInput** do projektu przepływu.
+
+![](../images/123.PNG)
+
+- Kliknij na węzeł i przejdź do zakładki *Basic*.
+- W wierszu *Input directory* kliknij **Browse...** i wybierz folder `<path-to-labfile>/labfiles/tmp`. Kliknij **Select Folder**.
+
+![](../images/124.PNG)
+
+- W tej samej zakładce zdefiniuj *File name or pattern* jako `*.edi` i przejdź do zakładki *Input Message Parsing*.
+
+![](../images/125.PNG)
+
+- W zakładce *Input Message Parsing* w *Message domain* wybierz **DFDL**.
+- W *Message model* wybierz **EDIFACT-Transport-SWGTECH-D96A**.
+- W *Message* wybierz **Interchange**.
+
+![](../images/126.PNG)
+
+- Przejdź do zakładki *Records and Elements* i ustaw *Record detection* na **Parsed Record Sequence**.
+
+![](../images/127.PNG)
+
+3. Konfiguracja węzła **Mapping**:
+
+- W zakładce Palette w komórce `<Search>` wpisz `mapp`. Pojawią się węzły **Mapping**.
+- Kliknij **Mapping**, a następnie najedź kursorem na wolną przestrzeń po prawej stronie od węzła **FileInput** i kliknij ponownie lewym przyciskiem myszy.
+
+![](../images/128.PNG)
+
+- Kliknij dwukrotnie na węzeł **Mapping**, aby skonfigurować mapowanie wiadomości.
+- Pozostaw ustawienia domyślne i kliknij **Next**.
+
+![](../images/129.PNG)
+
+- Wybierz modele danych wiadomości wejściowej: **Interchange** (EDIFACT) oraz wiadomości wyjściowej: **TransactionInstruction** (XML).
+
+![](../images/130.PNG)
+
+Schemat XML (`**EDIFact2XMLSchema_v1.xsd**`) jest modelem danych przykładowego, uproszczonego komunikatu XML **TransactionInstruction**. Został on stowrzony na potrzeby tego ćwiczenia. Wygląda on następująco:
+
+```xml
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+<xsd:element name="InterchangeHeader" type="Header"></xsd:element>
+    <xsd:complexType name="Header">
+    	<xsd:sequence>
+    		<xsd:element name="InterchangeSender" type="xsd:string"></xsd:element>
+    		<xsd:element name="InterchangeRecipient" type="xsd:string"></xsd:element>
+    		<xsd:element name="DateOfPreparation" type="xsd:string"></xsd:element>
+    	</xsd:sequence>
+    </xsd:complexType>
+<xsd:element name="Message" type="Message"></xsd:element>
+    <xsd:complexType name="Message">
+    	<xsd:sequence>
+    		<xsd:element name="MessageType" type="xsd:string"></xsd:element>
+    		<xsd:element name="DocumentMessageNameCoded"
+    			type="xsd:string">
+    		</xsd:element>
+    		<xsd:element name="DateTimePeriod " type="xsd:string"
+    			maxOccurs="unbounded" minOccurs="0">
+    		</xsd:element>
+    		<xsd:element name="ServiceRequirementCoded"
+    			type="xsd:string" maxOccurs="unbounded" minOccurs="0">
+    		</xsd:element>
+    		<xsd:element name="ControlTotal" type="Control" maxOccurs="unbounded" minOccurs="0"></xsd:element>
+    	</xsd:sequence>
+    </xsd:complexType>
+
+    <xsd:complexType name="Control">
+    	<xsd:sequence>
+    		<xsd:element name="ControlQualifier" type="xsd:string"></xsd:element>
+    		<xsd:element name="ControlValue" type="xsd:double"></xsd:element>
+    		<xsd:element name="MeasureUnitQualifier" type="xsd:string"></xsd:element>
+    	</xsd:sequence>
+    </xsd:complexType>
+
+    <xsd:element name="InterchangeTrailer" type="Trailer"></xsd:element>
+    
+    <xsd:complexType name="Trailer">
+    	<xsd:sequence>
+    		<xsd:element name="InterchangeControlReference" type="xsd:string"></xsd:element>
+    	</xsd:sequence>
+    </xsd:complexType>
+
+    <xsd:element name="TransactionInstruction" type="Transaction"></xsd:element>
+    
+    <xsd:complexType name="Transaction">
+    	<xsd:sequence>
+    		<xsd:element name="InterchangeHeader" type="Header"></xsd:element>
+    		<xsd:element name="Message" type="Message"></xsd:element>
+    		<xsd:element name="InterchangeTrailer" type="Trailer"></xsd:element>
+    	</xsd:sequence>
+    </xsd:complexType>
+</xsd:schema>
+```
+
+Wykorzystamy ten model danych jako docelowy format wiadomości wyjściowej.
+
+- Połącz odpowiednie pola z modelu **Interchange** (EDIFACT) z polami z modelu **TransactionInstruction** (XML) zgodnie z tabelą poniżej:
+
+| **Interchange** (EDIFACT)  | **TransactionInstruction** (XML) |
+| ------------- | ------------- |
+| Interchange-UNB-S002-E0004-InterchangeSender  | InterchangeHeader-InterchangeRecipient |
+| Interchange-UNB-S003-E0010-InterchangeRecipient | InterchangeHeader-InterchangeSender |
+| Interchange-UNB-S004-E0017-Date | InterchangeHeader-DateAndTimeOfPreparation |
+| Message-UNH-S009-E0065-MessageType | Message-MessageType |
+| Message-IFTMIN-BGM-C002-E1001-DocumentMessageNameCoded | Message-DocumentMessageNameCoded |
+| Message-IFTMIN-DTM-C507-E2380-DateTimePeriod | Message-DateTimePeriod |
+| Message-IFTMIN-TSR-C233-E7273a-ServiceRequirementCoded | Message-ServiceRequirementCoded |
+| Message-IFTMIN-CNT-ControlTotal | Message-ControlTotal |
+| (w ControlTotal) C270-E6069-ControlQualifier | ControlQualifier |
+| (w ControlTotal) C270-E6066-ControlValue | ControlValue |
+| (w ControlTotal) C270-E6411-MeasureUnitQualifier | MeasureUnitQualifier |
+| UNZ-E0020-InterchangeControlReference | InterchangeTrailer-InterchangeControlReference |
+
+<details>
+<summary><b><font color="dodgerblue">Kliknij, aby otowrzyć:</font></b> Instrukcja połączenia poszczególnych komponentów "**Mapy**"</summary>
+
+1. Połączenia w sekcji **InterchangeHeader**.
+
+![](../images/131.PNG)
+
+2. Połączenia w sekcji **Message**. 
+
+- Kliknij na `quick fix` (ikona "żarówki"): "Set cardinality to first index".
+
+![](../images/132.PNG)
+
+- Dla połączeń typu `For each` wejdź do mapy "zagnieżdżonej".
+
+![](../images/133.PNG)
+
+![](../images/134.PNG)
+
+- Wróć do mapy "głównej"
+
+![](../images/135.PNG)
+
+![](../images/136.PNG)
+
+![](../images/137.PNG)
+
+![](../images/138.PNG)
+
+3. Połączenia w sekcji **InterchangeTrailer**.
+
+![](../images/139.PNG)
+
+
+</details>
+
+- Zapisz **Mapę**, klikając **Ctrl + S**
+- Wróć do zakładki przepływu i zapisz przepływ,klikając **Ctrl + S**.
+
+## Konfoguracja MQ
+
+## Tworzenie aplikacji integracyjnej EDI2XML_App c.d.
