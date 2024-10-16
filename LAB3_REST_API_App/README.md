@@ -12,7 +12,7 @@ W tym ćwiczeniu stworzysz aplikacje REST API transactionAPI, gdzie zdefiniujesz
 
 Po ukończeniu tego ćwiczenia powinieneś potrafić:
 - Stworzyć aplikacje REST API.
-- Implementować operacje GET w REST API z wykorzystaniem subflow.
+- Implementować operacje `GET` w REST API z wykorzystaniem subflow.
 - Użyć węzła *Mapping* do mapowania wiadomości w formacie XML do formatu JSON.
 - Skonfigurować węzeł *MQGet*, aby odebrać wiadomość z koleiki.
 
@@ -48,7 +48,7 @@ Uruchom aplikacje IBM App Connect Toolkit.
 
 ![](../images/171.PNG)
 
-- Nazwij aplikacje `transactionAPI`, wybierz opcje *Create a REST API ..." (pozostaw wartości domyślne) i kliknij **Finish**.
+- Nazwij aplikacje `transactionAPI`, wybierz opcje *Create a REST API ...* (pozostaw wartości domyślne) i kliknij **Finish**.
 
 ![](../images/172.PNG)
 
@@ -57,7 +57,7 @@ Uruchom aplikacje IBM App Connect Toolkit.
 
 ![](../images/173.PNG)
 
-2. Po chwili otworzy sie edytor OpenAPI. Menu nawigacyjne znajduje się po lewej stronie okna, które ma funkcję wyszukiwania, a poniżej ma oddzielne sekcje dla każdej części dokumentu najwyższego poziomu o nazwach Components General, Paths i Components.
+2. Po chwili otworzy sie edytor OpenAPI. Menu nawigacyjne znajduje się po lewej stronie okna, które ma funkcję wyszukiwania, a poniżej ma oddzielne sekcje dla każdej części dokumentu najwyższego poziomu o nazwach General, Paths i Components.
 
 - Kliknij ikonę "**+**" przy *Paths*, aby dodać API `transaction`.
 
@@ -98,7 +98,7 @@ Uruchom aplikacje IBM App Connect Toolkit.
 
 ![](../images/179.PNG)
 
-- Przejdź do zakładki *Advance* i uzupełnij parametry zgodnie z orazkiem poniżej:
+- Przejdź do zakładki *Advance* i uzupełnij parametry zgodnie z obrazkiem poniżej:
 
 ![](../images/180.PNG)
 
@@ -199,7 +199,7 @@ Model danych, który załadowałeś jest odwzorowaniem schematu XML *Transaction
 > [!NOTE]
 > Internetowy interfejs użytkownika IBM App Connect Enterprise umożliwia użytkownikom dostęp do zasobów serwera integracji za pomocą przeglądarki internetowej i zapewnia administratorom integracji metodę administrowania tymi zasobami.
 >
-> Z poziomu internetowego interfejsu użytkownika można na przykład wykonywać następujące zadania administracyjne:
+> Z poziomu internetowego interfejsu użytkownika można wykonywać następujące zadania administracyjne:
 > 
 > - Wyświetlanie serwerów integracji i zasobów serwerów integracji oraz zarządzanie nimi, np. wdrażanie plików BAR aplikacji oraz zatrzymywanie, uruchamianie lub usuwanie wdrożonych aplikacji.
 > - Tworzenie polityk operacyjnych i zarządzanie nimi.
@@ -224,7 +224,7 @@ Model danych, który załadowałeś jest odwzorowaniem schematu XML *Transaction
 
 ![](../images/204.PNG)
 
-- Powinieneś otrzymać odpowiedź w formacie JSON z kotem **200**.
+- Powinieneś otrzymać odpowiedź w formacie JSON z kodem **200**.
 
 > [!IMPORTANT]
 > Jeśli nie otrzymałeś żadnej odpowiedzi, może to oznaczać, że w kolejce Q1 nie ma wiadomości, którą można pobrać. Aby uzupełnić kolejkę skopiuj plik `testedi.edi` i wklej go poniwnie w folderze `tmp`. Aplikacja monitorująca folder nadal jest uruchomiona na serwerze (z poprzedniego ćwiczenia), więc pobierze wiadomość do kolejki. Po wrzuceniu komunikatu do kolejki Q1, powtórz operacje `GET` w narzędziu Postman.
