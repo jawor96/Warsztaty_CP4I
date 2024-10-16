@@ -3,7 +3,9 @@
 ### Środowisko Laboratoryjne
 
 IBM App Connect Enterprise for Developers – [Instrukcja instalacji](https://www.ibm.com/docs/en/app-connect/12.0?topic=enterprise-download-ace-developer-edition-get-started).
+
 IBM MQ Server – [Instrukcja instalacji](https://www.ibm.com/docs/en/ibm-mq/9.3?topic=windows-installing-server-using-launchpad).
+
 IBM MQ Explorer – [Instrukcja instalacji](https://www.ibm.com/docs/en/ibm-mq/9.3?topic=windows-installing-stand-alone-mq-explorer).
 
 ### Laboratoria:
@@ -24,7 +26,7 @@ IBM MQ Explorer – [Instrukcja instalacji](https://www.ibm.com/docs/en/ibm-mq/9
 
 ### Prezentacje
 
-[Prezentacje do pobrania](https://github.com/jawor96/Warsztaty_CP4I/tree/main/Prezentacje)..
+[Prezentacje do pobrania](https://github.com/jawor96/Warsztaty_CP4I/tree/main/Prezentacje).
 
 ### Kontakt
 
