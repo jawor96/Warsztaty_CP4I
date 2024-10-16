@@ -2,11 +2,11 @@
 
 ## Czas ćwiczenia
 
-00:30
+00:40
 
 ## Opis ćwiczenia
 
-W tym ćwiczeniu stworzysz aplikacje integracyjną „EDI2XML_App”, która będzie monitorowała, czy we wskazanym przez Ciebie folderze pojawił sie plik w formacie `.edi`. Plik zostanie pobrany oraz sparsowany i przekazany do węzła mapującego wartości z dokumentu EDIFACT do odpowiednich pól w formacie XML. Sformatowaną wiadomość zostanie przesłane do kolejki MQ. 
+W tym ćwiczeniu stworzysz aplikacje integracyjną „EDI2XML_App”, która będzie monitorowała, czy we wskazanym przez Ciebie folderze pojawił sie plik w formacie `.edi`. Plik zostanie pobrany, sparsowany i przekazany do węzła mapującego wartości z dokumentu EDIFACT do odpowiednich pól w formacie XML. Sformatowana wiadomość zostanie przesłana do kolejki MQ. 
 
 ## Cele
 
@@ -14,31 +14,31 @@ Po ukończeniu tego ćwiczenia powinieneś potrafić:
 - Użyć węzła *FileInput* do przetwarzania komunikatów odczytywanych z plików.
 - Użyć widoku *DFDL Test* do testowania, modelowania, analizowania i parsowania danych EDIFACT zgodnie ze schematem DFDL.
 - Importować i korzystać z udostępnionych bibliotek.
-- Użyć węzła Mapping do mapowania wiadomości w formacie EDIFACT do formatu XML.
+- Użyć węzła *Mapping* do mapowania wiadomości w formacie EDIFACT do formatu XML.
 - Stowrzyć politykę pozwalającą połączyć się z MQ.
-- Skonfigurować menagera kolejek, kolejkę oraz węzeł MQInput.
+- Skonfigurować menadżera kolejek, kolejkę oraz węzeł *MQInput*.
 
 ## Wstęp
 
-Firma logistyczna otrzymuje komunikaty w formacie `.edi` do zdefiniowanej lokalizacji. Potrzebujemy stowrzć aplikacje, która przetworzy i zrozumie poszczególne transakcje zawarte w pliku na następnie zmapuje je na odpowiedni format XML. Aplikacja powinna wrzucać zmapowane wiadomości do kolejki MQ, aby następna aplikacja mogła pobrać wiadomość nie zależnie od systemu wyłającego komunikat.
+Firma logistyczna otrzymuje komunikaty w formacie `.edi` do wskazanej lokalizacji. Potrzebujemy stowrzć aplikacje, która przetworzy i zrozumie poszczególne transakcje zawarte w pliku, a następnie zmapuje je na odpowiedni format XML. Aplikacja powinna wrzucać zmapowane wiadomości do kolejki MQ, aby następna aplikacja mogła pobrać wiadomość niezależnie od systemu wysyłającego komunikat.
 
 ## Wymagania
 
 - Środowisko warsztatowe z zainstalowanym [IBM App Connect Enterprise Toolkit (ACET)](https://www.ibm.com/docs/en/app-connect/12.0?topic=enterprise-download-ace-developer-edition-get-started).
-- Środowisko warsztatowe z zainstalowanym [IBM MQ Server](hhttps://www.ibm.com/docs/en/ibm-mq/9.3?topic=windows-installing-server-using-launchpad) oraz [IBM MQ Explorer](https://www.ibm.com/docs/en/ibm-mq/9.3?topic=windows-installing-stand-alone-mq-explorer).
-- Pobrany i rozpakowany folder z plikami potrzebnymi do ćwiczeń laboratoryjnych [labfiles](https://github.com/jawor96/Warsztaty_CP4I/tree/main/labfiles).
+- Środowisko warsztatowe z zainstalowanym [IBM MQ Server](https://www.ibm.com/docs/en/ibm-mq/9.3?topic=windows-installing-server-using-launchpad) oraz [IBM MQ Explorer](https://www.ibm.com/docs/en/ibm-mq/9.3?topic=windows-installing-stand-alone-mq-explorer).
+- Pobrany i rozpakowany folder z plikami potrzebnymi do ćwiczeń laboratoryjnych - [labfiles](https://github.com/jawor96/Warsztaty_CP4I/tree/main/labfiles).
 - Dostęp do narzędzia do testowania komunikacji (Postman lub SoapUI).
 
 ## Przygotowanie środowiska
 
-Uruchom aplikacje IBM App Connect.
+Uruchom aplikacje IBM App Connect Toolkit.
 
-1.	Kliknij w Search w pasku narzędzi i wyszukaj aplikacji IBM App Connect Enterprise Toolkit 13/12.
+1.	Kliknij w Search w pasku narzędzi i wyszukaj aplikacji IBM App Connect Enterprise Toolkit 12.
 2.	Kliknij w aplikacje, aby ją uruchomić.
 
 ![](../images/001.png)
 
-3.	Zostaw domyślny **Workspace**: `<path-to-ACE>\IBM\ACET13(12)\workspace` i kliknij **Launch**. Aplikacja ACET uruchomi się po chwili.
+3.	Zostaw domyślny **Workspace**: `<path-to-ACE>\IBM\ACET12\workspace` i kliknij **Launch**. Aplikacja ACET uruchomi się po chwili.
 
 ![](../images/002.png)
 
@@ -50,7 +50,7 @@ Uruchom aplikacje IBM App Connect.
 
 ![](../images/102.PNG)
 
-6. Kliknij **Browse...** w "*From zip file*" i wybierz **EDIFACT-Transport-D96A-Example.zip** z folderu `labfiles`, a następnie kliknij **Open**.
+6. W polu "*From zip file*" kliknij **Browse...** i wybierz **EDIFACT-Transport-D96A-Example.zip** z folderu `labfiles`, a następnie kliknij **Open**.
 
 ![](../images/103.PNG)
 
@@ -80,7 +80,7 @@ Renderowanie każdego komponentu logicznego jest opisane przez właściwości DF
 
 ![](../images/106.PNG)
 
-3. Będziesz testować parsowanie przykładowych danych EDIFACT za pomocą komunikatu *Interchange*. Parsowanie testowe odbywa się w edytorze DFDL. Przed parsowaniem testowym należy przełączyć się na perspektywę DFDL Test, klikając **Window > Perspective > Open Perspective . Other**, a następnie klikając **DFDL Test** i **Open**.
+3. Będziesz testować parsowanie przykładowych danych EDIFACT za pomocą komunikatu *Interchange*. Parsowanie testowe odbywa się w edytorze DFDL. Przed parsowaniem testowym należy przełączyć się na perspektywę *DFDL Test*, klikając **Window > Perspective > Open Perspective > Other**, a następnie klikając **DFDL Test** i **Open**.
 
 ![](../images/107.PNG)
 
@@ -92,8 +92,8 @@ Renderowanie każdego komponentu logicznego jest opisane przez właściwości DF
 
 ![](../images/109.PNG)
 
-- W sekcji Message wybierz opcję **Interchange**.
-- W sekcji **Parser Input** wybierz opcję *Content from a data file*, a następnie kliknij przycisk **Browse**.
+- W sekcji **Message** wybierz opcję **Interchange**.
+- W sekcji **Parser Input** wybierz opcję *Content from a data file*, a następnie kliknij **Browse...**.
 - Wybierz `plik edifact.edi` z **EDIFACT-Transport-SWGTECH-D96A**, a następnie kliknij **OK**.
 
 ![](../images/110.PNG)
@@ -139,7 +139,7 @@ W tej cześci ćwiczenia stworzysz apliakcje **EDI2XML_App**, która monitoruje 
 
 1. Tworzenie przepływu aplikacji:
 
-- Wróć do widoku **integration Development**, klikając ikonę w prawym górnym rogu.
+- Wróć do widoku **Integration Development**, klikając ikonę w prawym górnym rogu.
 
 ![](../images/117.PNG)
 
@@ -151,7 +151,7 @@ W tej cześci ćwiczenia stworzysz apliakcje **EDI2XML_App**, która monitoruje 
 
 ![](../images/119.PNG)
 
-- Dodaj biblioteki ze schematem DFDL wiadomości EDIFACT i kliknij **Finish**.
+- Dodaj do projektu biblioteki ze schematem DFDL wiadomości EDIFACT i kliknij **Finish**.
 
 ![](../images/120.PNG)
 
@@ -206,7 +206,7 @@ W tej cześci ćwiczenia stworzysz apliakcje **EDI2XML_App**, która monitoruje 
 
 ![](../images/130.PNG)
 
-Schemat XML (`**EDIFact2XMLSchema_v1.xsd**`) jest modelem danych przykładowego, uproszczonego komunikatu XML **TransactionInstruction**. Został on stowrzony na potrzeby tego ćwiczenia. Wygląda on następująco:
+Schemat XML (`EDIFact2XMLSchema_v1.xsd`) jest modelem danych przykładowego, uproszczonego komunikatu XML **TransactionInstruction**. Został on stowrzony na potrzeby tego ćwiczenia. Wygląda on następująco:
 
 ```xml
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
@@ -303,6 +303,7 @@ Wykorzystamy ten model danych jako docelowy format wiadomości wyjściowej.
 ![](../images/134.PNG)
 
 - Wróć do mapy "głównej"
+- Powtórz czynność dla innych pól.
 
 ![](../images/135.PNG)
 
@@ -320,16 +321,16 @@ Wykorzystamy ten model danych jako docelowy format wiadomości wyjściowej.
 </details>
 
 - Zapisz **Mapę**, klikając **Ctrl + S**
-- Wróć do zakładki przepływu i zapisz przepływ,klikając **Ctrl + S**.
+- Wróć do zakładki przepływu i zapisz przepływ, klikając **Ctrl + S**.
 
 ## Konfiguracja MQ
 
-W tym etapie skonfigurujemy menadżera kolejek MQ (QM1) oraz lokalną kolejkę Q1, a takrze port do nasłuchiwania. Następnie w **ACET** skonfigurujemy politykę, która pozwoli nam się połączyć z lokalnym MQ. 
+W tym etapie skonfigurujemy menadżera kolejek MQ (QM1) oraz lokalną kolejkę Q1, a także port do nasłuchiwania. Następnie w **ACET** skonfigurujemy politykę, która pozwoli nam się połączyć z lokalnym MQ. 
 
 > [!WARNING]
 > Na tym etapie zakładamy, że IBM MQ Server oraz IBM MQ Explorer został zainstalowany.
 
-1. Otwórz `CMD` jako administrator, a następnie wykonaj komendę `dspmqver`. Wyświetlą się informacje dotyczące instalacji MQ.
+1. Otwórz `Terminal (CMD)` jako administrator, a następnie wykonaj komendę `dspmqver`. Wyświetlą się informacje dotyczące instalacji MQ.
 
 ![](../images/140.PNG)
 
@@ -341,7 +342,7 @@ W tym etapie skonfigurujemy menadżera kolejek MQ (QM1) oraz lokalną kolejkę Q
 
 ![](../images/142.PNG)
 
-4. Wykonaj komendę `runmqsc QM1`.
+4. Wykonaj komendę `runmqsc QM1`, aby wejść do QM1.
 
 ![](../images/143.PNG)
 
@@ -355,9 +356,9 @@ W tym etapie skonfigurujemy menadżera kolejek MQ (QM1) oraz lokalną kolejkę Q
 
 ![](../images/145.PNG)
 
-IBM MQ Explorer to graficzny interfejs użytkownika, za pomocą którego można administrować i monitorować obiekty IBM MQ, niezależnie od tego, czy są one hostowane na komputerze lokalnym, czy w systemie zdalnym. Może zdalnie łączyć się z menedżerami kolejek działającymi na dowolnej obsługiwanej platformie, umożliwiając przeglądanie, eksplorowanie i modyfikowanie całego szkieletu przesyłania wiadomości z poziomu UI. 
+**IBM MQ Explorer** to graficzny interfejs użytkownika, za pomocą którego można administrować i monitorować obiekty IBM MQ, niezależnie od tego, czy są one hostowane na komputerze lokalnym, czy w systemie zdalnym. Można zdalnie łączyć się z menedżerami kolejek działającymi na dowolnej obsługiwanej platformie, umożliwiając przeglądanie, eksplorowanie i modyfikowanie całego szkieletu przesyłania wiadomości z poziomu UI. 
 
-9. Kliknij na w prawym górnym rogu, która pozwoli Ci zobaczyć wszystkie systemowe elemtny menedżera kolejek **QM1**, a następnie przejdź do folderu "*Nasłuchiwanie*" (Listening).
+9. Kliknij ikonę "+/-" w prawym górnym rogu, która pozwoli Ci zobaczyć wszystkie systemowe elemtny menedżera kolejek **QM1**, a następnie przejdź do folderu "*Nasłuchiwanie*" (Listening).
 
 ![](../images/146.PNG)
 
@@ -406,7 +407,7 @@ Reszte pozycji pozostaw bez zmian.
 
 - W zakładce Palette w komórce `<Search>` wpisz `mq`. Pojawią się węzły **MQ**.
 - Kliknij **MQOutput**, a następnie najedź kursorem na wolną przestrzeń po prawej stronie od węzła **Mapping** i kliknij ponownie lewym przyciskiem myszy.
-- Połącz terminal **Out** węzła **Mapping** z terminalem **In** węzła **MQOutput**.
+- Połącz terminal **Out** węzła **Mapping** z terminalem **In** węzła **MQ Output**.
 - Kliknij na węzeł i przejdz do zakładki *Basic*.
 - W polu *Queue name* wpisz `Q1`.
 
@@ -421,7 +422,7 @@ Reszte pozycji pozostaw bez zmian.
 
 ## Testowanie aplikacji integracyjnej EDI2XML_App
 
-Zanim przejdzeimy do testowania musimy wdrożyć na serwer wykorzystywane biblioteki oraz politykę MQ.
+Zanim przejdzeimy do testowania musimy wdrożyć na serwer wykorzystywane w przepływie biblioteki oraz politykę MQ.
 
 1. Aby wdrożyć biblioteki EDIFACT, nalży kliknąć prawym przycieskiem myszy na bibliotekę: **EDIFACT-Transport-SWGTECH-D96A**, a następnie kliknij **Deploy** i wybierz serwer integracyjny **IntServer**. 
 
@@ -448,7 +449,7 @@ Teraz mamy na serwerze szystkie potrzebne komponenty, aby wdrożyć aplikacje *
 ![](../images/160.PNG)
 
 5. Przejdź do folderu `tmp`, a następnie wklej plik `editest.edi`. Po chwili wklejony plik powinien zniknąć, co oznacza, że został on przetowrzony.
-6. Wróc do ACET i kliknij ikonę "ścieki" wiadomości.
+6. Wróc do ACET i kliknij ikonę "ścieżki" wiadomości.
 
 ![](../images/161.PNG)
 
@@ -480,4 +481,4 @@ Wiadomość zozostała przetworzona zgodnie z naszymi oczekiwaniami.
 
 ## Podsumowanie
 
-Podczas wykonywania ćwiczenia stworzyłeś przepływ integracyjny zawierający różne węzły integracyjne. Wykorzystałeś węzeł *File Input*, aby monitorować folder wyjeściowy wiadomości EDIFACT. Wykorzystałeś węzeł *Mapping*, aby zmapować format EDIFACT na format XML. Skonfigutrowałeś lokalny system kolejkowy MQ oraz połączenie MQ z ACE poprzez politykę. Użyłeś węzłów *MQ Output*, aby odwołać wrzucić komunikat to kolejki. Przetestowałeś przepływ komunikatu z wykorzystaniem narzędzia *Flow Exerciser*. Dodatkowo zrozumiałeś składnie języka DFDL oraz użyłeś widoku *DFDL Test* do testowania, modelowania, analizowania i parsowania danych EDIFACT zgodnie ze schematem DFDL.
+Podczas wykonywania ćwiczenia stworzyłeś przepływ integracyjny zawierający różne węzły integracyjne. Wykorzystałeś węzeł *File Input*, aby monitorować folder wyjeściowy wiadomości EDIFACT. Wykorzystałeś węzeł *Mapping*, aby zmapować format EDIFACT na format XML. Skonfigutrowałeś lokalny system kolejkowy MQ oraz połączenie MQ z ACE poprzez politykę. Użyłeś węzłów *MQ Output*, aby wrzucić komunikat to kolejki. Przetestowałeś przepływ komunikatu z wykorzystaniem narzędzia *Flow Exerciser*. Dodatkowo zrozumiałeś składnie języka DFDL oraz użyłeś widoku *DFDL Test* do testowania, modelowania, analizowania i parsowania danych EDIFACT zgodnie ze schematem DFDL.

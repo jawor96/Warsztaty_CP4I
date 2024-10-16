@@ -71,12 +71,12 @@ Dodatkowo klient końcowy naszego komunikatu wysyłki wymaga od nas wiadomości 
 
 Na tym etapie uruchomisz aplikacje IBM App Connect.
 
-1.	Kliknij w Search w pasku narzędzi i wyszukaj aplikacji IBM App Connect Enterprise Toolkit 13/12.
+1.	Kliknij w Search w pasku narzędzi i wyszukaj aplikacji IBM App Connect Enterprise Toolkit 12.
 2.	Kliknij w aplikacje, aby ją uruchomić.
 
 ![](../images/001.png)
 
-3.	Zostaw domyślny **Workspace**: `<path-to-ACE>\IBM\ACET13(12)\workspace` i kliknij **Launch**. Aplikacja ACET uruchomi się po chwili.
+3.	Zostaw domyślny **Workspace**: `<path-to-ACE>\IBM\ACET12\workspace` i kliknij **Launch**. Aplikacja ACET uruchomi się po chwili.
 
 ![](../images/002.png)
 
