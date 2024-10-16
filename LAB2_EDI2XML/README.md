@@ -428,7 +428,7 @@ Zanim przejdzeimy do testowania musimy wdrożyć na serwer wykorzystywane w prz
 
 ![](../images/158.PNG)
 
-2. Aby wdrożyć projekt polityki MQ, nalży kliknąć prawym przycieskiem myszy na projekt, a następnie kliknij **Deploy** i wybierz serwer integracyjny **IntServer**.
+2. Aby wdrożyć projekt polityki MQ, należy kliknąć prawym przycieskiem myszy na projekt, a następnie kliknij **Deploy** i wybierz serwer integracyjny **IntServer**.
 
 ![](../images/156.PNG)
 
