@@ -196,6 +196,7 @@ W tej cześci ćwiczenia stworzysz apliakcje **EDI2XML_App**, która monitoruje 
 
 ![](../images/128.PNG)
 
+- Połącz terminal **Out** węzła **File Input** z terminalem **In** węzła **Mapping**.
 - Kliknij dwukrotnie na węzeł **Mapping**, aby skonfigurować mapowanie wiadomości.
 - Pozostaw ustawienia domyślne i kliknij **Next**.
 
@@ -349,14 +350,134 @@ W tym etapie skonfigurujemy menadżera kolejek MQ (QM1) oraz lokalną kolejkę Q
 ![](../images/144.PNG)
 
 6. Wyświetl szczegóły kolejki komendą `dis QL(Q1)`.
-
-![](../images/145.PNG)
-
 7. Zakończ tryb MQSC, wykonując komendę `end`.
 8. Wyszukaj i otwórz **MQ Explorer**.
 
+![](../images/145.PNG)
+
+IBM MQ Explorer to graficzny interfejs użytkownika, za pomocą którego można administrować i monitorować obiekty IBM MQ, niezależnie od tego, czy są one hostowane na komputerze lokalnym, czy w systemie zdalnym. Może zdalnie łączyć się z menedżerami kolejek działającymi na dowolnej obsługiwanej platformie, umożliwiając przeglądanie, eksplorowanie i modyfikowanie całego szkieletu przesyłania wiadomości z poziomu UI. 
+
+9. Kliknij na w prawym górnym rogu, która pozwoli Ci zobaczyć wszystkie systemowe elemtny menedżera kolejek **QM1**, a następnie przejdź do folderu "*Nasłuchiwanie*" (Listening).
+
 ![](../images/146.PNG)
 
+10. Ustaw port `1414` na nasłuchu TCP `SYSTEM.DEFAULT.LISTENER.TCP` i kliknij **OK**.
 
+![](../images/147.PNG)
+
+## Konfiguracja MQ Policy
+
+W nastepnym kroku stworzymy projekt polityki MQ, aby kontrolować wartości konfiguracje połączenia węzła MQ.
+
+1. Wróć do narzędzia ACET i kliknij **New...**, a następnie dodaj **Policy Project**.
+
+![](../images/148.PNG)
+
+- Nazwij projekt `MQPolicyProject`, a następnie kliknij **Finish**.
+
+![](../images/149.PNG)
+
+2. Stwórz politykę, klikająć **(New..)** i **Policy**.
+
+![](../images/150.PNG)
+
+- Nazwij projekt `MQPolicy`, a następnie kliknij **Finish**.
+- Wybierz **Type** polityki: `MQEndpoint`.
+- Wybierz **Template** polityki: `MQEndpoint`.
+- Pojawi się szablon, który wypełnij zgodnie z tabelą ponieżj:
+
+| Property  | Value |
+| ------------- | ------------- |
+| Connection  | SERVER |
+| Queue manager name | QM1 |
+| Queue manager host name | localhost |
+| Listener port number | 1414 |
+| Channel name | SYSTEM.DEFAULT.LISTENER.TCP |
+
+![](../images/153.PNG)
+
+Reszte pozycji pozostaw bez zmian.
+
+3. Zapisz politykę.
 
 ## Tworzenie aplikacji integracyjnej EDI2XML_App c.d.
+
+1. Na tym etapie ćwiczenia skonfigurujemy ostatni węzeł przepływu: **MQ Output**.
+
+- W zakładce Palette w komórce `<Search>` wpisz `mq`. Pojawią się węzły **MQ**.
+- Kliknij **MQOutput**, a następnie najedź kursorem na wolną przestrzeń po prawej stronie od węzła **Mapping** i kliknij ponownie lewym przyciskiem myszy.
+- Połącz terminal **Out** węzła **Mapping** z terminalem **In** węzła **MQOutput**.
+- Kliknij na węzeł i przejdz do zakładki *Basic*.
+- W polu *Queue name* wpisz `Q1`.
+
+![](../images/154.PNG)
+
+- Przejdź do zakładki *Policy* i kliknij **Browse...**.
+- Wybierz dostępną politykę **MQPolicy** i kliknij **OK**
+
+![](../images/155.PNG)
+
+2. Zapisz gotową aplikacje **EDI2XML_App**.
+
+## Testowanie aplikacji integracyjnej EDI2XML_App
+
+Zanim przejdzeimy do testowania musimy wdrożyć na serwer wykorzystywane biblioteki oraz politykę MQ.
+
+1. Aby wdrożyć biblioteki EDIFACT, nalży kliknąć prawym przycieskiem myszy na bibliotekę: **EDIFACT-Transport-SWGTECH-D96A**, a następnie kliknij **Deploy** i wybierz serwer integracyjny **IntServer**. 
+
+![](../images/158.PNG)
+
+2. Aby wdrożyć projekt polityki MQ, nalży kliknąć prawym przycieskiem myszy na projekt, a następnie kliknij **Deploy** i wybierz serwer integracyjny **IntServer**.
+
+![](../images/156.PNG)
+
+Teraz mamy na serwerze szystkie potrzebne komponenty, aby wdrożyć aplikacje **EDI2XML_App**.
+
+3. Do testowania aplikacji wykorzystasz narzędzie **Flow Exerciser**, które wdroży aplikacje na serwer oraz prześledzi komunikaty na każdym etapie przepływu:
+
+- Kliknij ikonę "nagrywania" przy **Flow Exerciser**.
+
+![](../images/157.PNG)
+
+- Po uruchomieniu **Flow Exerciser**, pojawi się informacja o śledzeniu przepływu oraz aplikacja zostanie uruchomiona na serwerze.
+
+![](../images/159.PNG)
+
+4. Przejdź do folderu `labfiles` i skopiuj plik `editest.edi`.
+
+![](../images/160.PNG)
+
+5. Przejdź do folderu `tmp`, a następnie wklej plik `editest.edi`. Po chwili wklejony plik powinien zniknąć, co oznacza, że został on przetowrzony.
+6. Wróc do ACET i kliknij ikonę "ścieki" wiadomości.
+
+![](../images/161.PNG)
+
+7. Kliknij na pierwszą "kopertę" pokazującą komunikat odebrany i sparsowany przez węzeł **File Input**. Rozwiń zakładkę *message* oraz *DFDL*, aby przeanalizować wiadomość.
+
+![](../images/162.PNG)
+
+8. Kliknij na druga "kopertę" pokazującą komunikat zmapowany na format XML przez węzeł **Mapping**. Rozwiń zakładkę *message* oraz *XMLNSC*, aby przeanalizować wiadomość.
+
+![](../images/163.PNG)
+
+Wiadomość zozostała przetworzona zgodnie z naszymi oczekiwaniami.
+
+9. Zatrzymaj narzędzie **Flow Exerciser**, klikając ikonę "Stop".
+
+![](../images/167.PNG)
+
+10. Aby sprawdzić, czy nasza wiadomość trafiła do kolejki, wróć do narzędzia **IBM MQ Explorer**.
+
+- Kliknij prawym przyciskiem myszy na kolejkę **Q1**, a następnie *Przeglądaj komunikaty...*
+
+![](../images/169.PNG)
+
+- Widzimy, że wysłany komunikat czeka na odebranie w kolejce **Q1**.
+
+![](../images/170.PNG)
+
+***KONIEC ĆWICZENIA - Gratulacje!***
+
+## Podsumowanie
+
+Podczas wykonywania ćwiczenia stworzyłeś przepływ integracyjny zawierający różne węzły integracyjne. Wykorzystałeś węzeł *File Input*, aby monitorować folder wyjeściowy wiadomości EDIFACT. Wykorzystałeś węzeł *Mapping*, aby zmapować format EDIFACT na format XML. Skonfigutrowałeś lokalny system kolejkowy MQ oraz połączenie MQ z ACE poprzez politykę. Użyłeś węzłów *MQ Output*, aby odwołać wrzucić komunikat to kolejki. Przetestowałeś przepływ komunikatu z wykorzystaniem narzędzia *Flow Exerciser*. Dodatkowo zrozumiałeś składnie języka DFDL oraz użyłeś widoku *DFDL Test* do testowania, modelowania, analizowania i parsowania danych EDIFACT zgodnie ze schematem DFDL.
