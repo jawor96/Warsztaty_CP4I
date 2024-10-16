@@ -14,7 +14,7 @@ Po ukończeniu tego ćwiczenia powinieneś potrafić:
 - Stworzyć aplikacje REST API.
 - Implementować operacje `GET` w REST API z wykorzystaniem subflow.
 - Użyć węzła *Mapping* do mapowania wiadomości w formacie XML do formatu JSON.
-- Skonfigurować węzeł *MQGet*, aby odebrać wiadomość z koleiki.
+- Skonfigurować węzeł *MQGet*, aby odebrać wiadomość z kolejki.
 
 ## Wstęp
 
@@ -91,10 +91,10 @@ Uruchom aplikacje IBM App Connect Toolkit.
 
 - Otowrzy się widok przepływu z węzłami **Input** oraz **Output**.
 
-3. Dodaj węzeł **MQ Get** do przepływu wyszukując go w *Palette*. Jest to węzeł, który pobierze wiadomość z koleiki.
+3. Dodaj węzeł **MQ Get** do przepływu wyszukując go w *Palette*. Jest to węzeł, który pobierze wiadomość z kolejki.
 
 - Połącz terminal **Out** węzła **Input** z terminalem **In** węzła **MQ Get**.
-- Kliknij na węzeł **MQ Get** i przejdź do zakładki *Basic*. Wpisz w *Queue name* nazwę koleiki stowrzonej w poprzednim ćwiczeniu (LAB2): `Q1`.
+- Kliknij na węzeł **MQ Get** i przejdź do zakładki *Basic*. Wpisz w *Queue name* nazwę kolejki stowrzonej w poprzednim ćwiczeniu (LAB2): `Q1`.
 
 ![](../images/179.PNG)
 
