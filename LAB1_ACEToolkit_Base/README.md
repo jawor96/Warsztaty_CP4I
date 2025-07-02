@@ -245,7 +245,7 @@ Na tym etapie skonfigurujesz węzły i dodasz połączenia między poszczególny
 ![](../images/026.png)
 
 - Przejść do zakładki *Basic* w panelu *Properties*.
-- W **Web service URL** wpisz adres usługi webowej: `http://lab22.team.waw.pl:2060/shipping`, która zwraca nam pozytywny status wykonania zlecenia.
+- W **Web service URL** wpisz adres usługi webowej: `http://dp-api-traffic-3000-lab-mj.apps.cp4i.team.waw.pl/shipping`, która zwraca nam pozytywny status wykonania zlecenia.
 
 ![](../images/027.png)
 
@@ -261,7 +261,7 @@ Na tym etapie skonfigurujesz węzły i dodasz połączenia między poszczególny
 - Kliknij na węzeł i przejść do zakładki *Description* w panelu *Properties*.
 - Zmień nazwę węzła na: `Train`
 - Przejść do zakładki *Basic* w panelu *Properties*.
-- W **Web service URL** wpisz adres usługi webowej: `http://lab22.team.waw.pl:2061/shipping`, która zwraca nam pozytywny status wykonania zlecenia.
+- W **Web service URL** wpisz adres usługi webowej: `http://dp-api-traffic-3001-lab-mj.apps.cp4i.team.waw.pl/shipping`, która zwraca nam pozytywny status wykonania zlecenia.
 
 ![](../images/030.png)
 
