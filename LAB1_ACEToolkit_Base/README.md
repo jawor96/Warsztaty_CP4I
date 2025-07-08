@@ -17,12 +17,12 @@ Po ukończeniu tego ćwiczenia powinieneś potrafić:
 - Przetestować przepływ komunikatu z wykorzystaniem narzędzia *Flow exerciser*.
 - Stworzyć serwer integracyjny pod node’m integracyjnym.
 - Użyć węzła Compute do transformacji wiadomości w formacie XML do formatu JSON z wykorzystaniem języka ESQL.
-- Rozumieć składnie skryptów ESQL.
+- Rozumieć składnię skryptów ESQL.
 - Przetestować przepływ komunikatu z wykorzystaniem funkcji *Debugger*.
 
 ## Wstęp
 
-Firma logistyczna ma dwa systemy obsługujące przesyłki w zależności od metody wysyłki – *Sea* (wysyłka morska) oraz *Train* (wysyłka lądowa: kolej). Potrzebujemy stworzyć aplikacje integracyjną, która przekieruje zamówienie złożone przez klienta do odpowiedniego systemu wysyłkowego. Komunikat zamówienia jest w formacie XML i zawiera następujące informacje: identyfikator użytkowania (`userID`), nazwa użytkowania (`userName`), identyfikator produktu (`prodID`), ilość zamówionego produktu (`quantity`) oraz metodę wysyłki (`shippingMethod`). Przykład komunikatu:
+Firma logistyczna ma dwa systemy obsługujące przesyłki w zależności od metody wysyłki – *Sea* (wysyłka morska) oraz *Train* (wysyłka lądowa: kolej). Potrzebujemy stworzyć aplikację integracyjną, która przekieruje zamówienie złożone przez klienta do odpowiedniego systemu wysyłkowego. Komunikat zamówienia jest w formacie XML i zawiera następujące informacje: identyfikator użytkowania (`userID`), nazwę użytkowanika (`userName`), identyfikator produktu (`prodID`), ilość zamówionego produktu (`quantity`) oraz metodę wysyłki (`shippingMethod`). Przykład komunikatu:
 
 ```xml
     <Customer>
@@ -49,17 +49,17 @@ Schemat XML (`ShippingShemaValidation.xsd`) opisujący komunikat wygląda nastę
     </xs:element>
     </xs:schema>
 ```
-W aplikacji integracyjnej dodasz węzeł *Route* do przepływu komunikatu, dzięki czemu odpowiedzi systemu na wiadomość będą udzielane na podstawie metody wysyłki (`shippingMethod`) w komunikacie.
+W aplikacji integracyjnej dodasz węzeł *Route* do przepływu komunikatów, dzięki czemu odpowiedzi systemu na wiadomości będą udzielane na podstawie metody wysyłki (`shippingMethod`) zawartej w komunikacie.
 
 W tym ćwiczeniu zdefiniujesz terminale wyjściowe, aby uzyskać kontrolę nad przepływem komunikatów.
 - Jeśli wartość `shippingMethod` będzie równa *Sea*, komunikat jest kierowany do terminala wyjściowego o nazwie *Sea* do węzła zapytania HTTP o nazwie *Sea*.
 - Jeśli wartość `shippingMethod` będzie równa *Train*, komunikat jest kierowany do terminala wyjściowego o nazwie *Sea* do węzła zapytania HTTP o nazwie *Train*.
-- Jeśli wiadomość jest nieznana, komunikat jest kierowana do węzła o nazwie *Uknown*.
-Po odpowiednim skierowaniu komunikatu dostaniemy odpowiedź od systemu wysyłkowego potwierdzająca wykonanie zlecenia.
+- Jeśli wiadomość jest nieznana, komunikat jest kierowany do węzła o nazwie *Uknown*.
+Po odpowiednim skierowaniu komunikatu dostaniemy odpowiedź od systemu wysyłkowego potwierdzającą wykonanie zlecenia.
 
 W następnym kroku stworzymy serwer integracyjny i przetestujemy działanie naszej aplikacji z wykorzystaniem narzędzia *Flow exerciser*.
 
-Dodatkowo klient końcowy naszego komunikatu wysyłki wymaga od nas wiadomości zwrotnej w formacie JSON z dodatkową informacją o ID wysyłki (`shipID`) oraz dacie wykonania wysyłki (`shipTimestamp`). Aby zrealizować wymagania klienta skonfigurujesz węzeł *Compute* wykorzystując skrypt ESQL do transformacji komunikatu z systemów wysyłkowych.
+Dodatkowo klient końcowy naszego komunikatu wysyłki wymaga od nas wiadomości zwrotnej w formacie JSON z dodatkową informacją o ID wysyłki (`shipID`) oraz dacie wykonania wysyłki (`shipTimestamp`). Aby zrealizować wymagania klienta skonfigurujesz węzeł *Compute* wykorzystując skrypt ESQL do transformacji komunikatuów z systemów wysyłkowych.
 
 ## Wymagania
 
@@ -69,10 +69,10 @@ Dodatkowo klient końcowy naszego komunikatu wysyłki wymaga od nas wiadomości 
 
 ## Przygotowanie środowiska
 
-Na tym etapie uruchomisz aplikacje IBM App Connect.
+Na tym etapie uruchomisz aplikację IBM App Connect.
 
 1.	Kliknij w Search w pasku narzędzi i wyszukaj aplikacji IBM App Connect Enterprise Toolkit 12.
-2.	Kliknij w aplikacje, aby ją uruchomić.
+2.	Kliknij w aplikację, aby ją uruchomić.
 
 ![](../images/001.png)
 
