@@ -127,20 +127,7 @@ Na tym etapie stworzysz wstępny projekt przepływu aplikacji integracyjnej popr
 - [HTTPRequest](https://www.ibm.com/docs/en/app-connect/12.0?topic=nodes-httprequest-node) – wykorzystywany do interakcji z serwisem webowym. W zadaniu użyty do wywołania usługi wysyłkowej.
 - [HTTPReply](https://www.ibm.com/docs/en/app-connect/12.0?topic=nodes-httpreply-node) – wykorzystywany do odpowiedzi z przepływu do klienta http. W zadaniu użyty do otrzymania wiadomości zwrotnej.
 - [Route](https://www.ibm.com/docs/en/app-connect/12.0?topic=nodes-Route-node) – wykorzystywany do przekierowania wiadomości spełniające określone kryteria różnymi ścieżkami przepływu. W zadaniu użyty do przekierowania komunikatu do odpowiedniego systemu.
-- [XLSTransform](https://translate.google.pl/?sl=en&tl=pl&text=Use%20the%20XSLTransform%20node%20to%20transform%20an%20XML%20message%20to%20another%20form%20of%20message%2C%20according%20to%20the%20rules%20provided%20by%20an%20XSL%20(Extensible%20Stylesheet%20Language)%20style%20sheet&op=translate) – wykorzystywany do przekształcenia wiadomość XML w inną formę wiadomości zgodnie z regułami określonymi w arkuszu stylów XSL (Extensible Stylesheet Language). W zadaniu wykorzystany do obsługi wiadomości z nieznaną metodą wysyłki.
-
-1.	W zakładce Palette w komórce `<Search>` wpisz `http`. Pojawią się wszystkie węzły związane z komunikacją po `http`.
-2.	Kliknij **HTTPInput**, a następnie najedź kursorem na wolną przestrzeń po prawej stronie i kliknij ponownie lewym przyciskiem myszy. W ten sposób dodałeś węzeł **HTTPInput** do projektu przepływu.
-3.	Powtórz czynność dla pozostałych węzłów HTTP zgodnie z obrazkiem poniżej:
-
-![](../images/008.png)
-
-4.	W zakładce Palette w komórce `<Search>` wpisz *Route*. Pojawią się węzły związane z routingiem.
-5.	Dodaj węzeł *Route* tak jak na załączonym obrazku:
-
-![](../images/009.png)
-
-6.	Pozostało Ci jeszcze do dodania węzeł **XSLTransform**, w komórce `<Search>` wpisz `XLS` i dodaj węzeł do przepływu nad węzłami **HTTPRequest**.
+- [XLSTransform](https://translate.google.pl/?]
 
 ![](../images/010.png)
 
@@ -149,7 +136,7 @@ Na tym etapie stworzysz wstępny projekt przepływu aplikacji integracyjnej popr
 Na tym etapie skonfigurujesz węzły i dodasz połączenia między poszczególnymi węzłami.
 
 1.	Węzeł **HTTP Input**:
-- Kliknij na węzeł i przejść do zakładki *Basic* w panelu *Properties*.
+- Kliknij na węzeł i przejdź do zakładki *Basic* w panelu *Properties*.
 - W tym miejscu musisz zdefiniować ścieżkę URL, gdzie będzie wysyłał komunikat klienta. W miejscu **Path suffix for URL** wpisz `/shipping`
 
 ![](../images/011.png)
@@ -217,7 +204,7 @@ Na tym etapie skonfigurujesz węzły i dodasz połączenia między poszczególny
 ![](../images/021.png)
 
 4.	Konfiguracja węzła **XSL Transform**:
-- Kliknij na węzeł i przejść do zakładki *Description* w panelu *Properties*.
+- Kliknij na węzeł i przejdź do zakładki *Description* w panelu *Properties*.
 - Zmień nazwę węzła na: `Unknown`.
 
 ![](../images/022.png)
@@ -227,7 +214,7 @@ Na tym etapie skonfigurujesz węzły i dodasz połączenia między poszczególny
 ![](../images/023.png)
 
 - Przejdź do zakładki *Stylesheet* i kliknij **Browse…**
-- Wybierz wcześniej skopiowany plik `UnknownShippingMethod.xsl`, który robi transformacje komunikatu wejściowego na komunikat wyjściowy z wiadomością o nieznanej metodzie wysyłki.
+- Wybierz wcześniej skopiowany plik `UnknownShippingMethod.xsl`, który odpowiada za transformację komunikatu wejściowego na komunikat wyjściowy z wiadomością o nieznanej metodzie wysyłki.
 
 > [!NOTE]
 > Transformacja wstawia do wiadomość: `UNKNOWN Shipping Method` w polu `shippingStatus`.
@@ -258,9 +245,9 @@ Na tym etapie skonfigurujesz węzły i dodasz połączenia między poszczególny
 ![](../images/029.png)
 
 6.	Konfiguracja węzła **HTTP Request1**:
-- Kliknij na węzeł i przejść do zakładki *Description* w panelu *Properties*.
+- Kliknij na węzeł i przejdź do zakładki *Description* w panelu *Properties*.
 - Zmień nazwę węzła na: `Train`
-- Przejść do zakładki *Basic* w panelu *Properties*.
+- Przejdź do zakładki *Basic* w panelu *Properties*.
 - W **Web service URL** wpisz adres usługi webowej: `http://dp-api-traffic-3001-lab-mj.apps.cp4i.team.waw.pl/shipping`, która zwraca nam pozytywny status wykonania zlecenia.
 
 ![](../images/030.png)
@@ -282,7 +269,7 @@ Na tym etapie skonfigurujesz węzły i dodasz połączenia między poszczególny
 
 Na tym etapie stworzysz nowy serwer integracyjny z poziomu IBM App Connect Enterprise Console.
 
-1.	Aby uruchomić konsole ACE, kliknij w *Search* w pasku narzędzi i wpisz `App Connect`, a następnie kliknąć prawym przyciskiem myszy na aplikacje **IBM App Connect Enterprise Console** i kliknij **Rus as administrator**.
+1.	Aby uruchomić konsolę ACE, kliknij w *Search* w pasku narzędzi i wpisz `App Connect`, a następnie kliknij prawym przyciskiem myszy na aplikację **IBM App Connect Enterprise Console** i kliknij **Rur as administrator**.
 
 ![](../images/033.png)
 
@@ -302,13 +289,13 @@ Na tym etapie stworzysz nowy serwer integracyjny z poziomu IBM App Connect Enter
 ![](../images/034.png)
 
 6.	Po komunikacie o pomyślnym wystartowaniu serwera integracyjnego wróć do aplikacji IBM App Connect Enterprise Toolkit.
-7.	Upewnij się, że serwer integracyjny **IntServer** działa, klikając prawym przyciskiem myszy w węzeł integracyjny **WORKNODE** (lewy dolny róg aplikacji) i **Refresh**.
+7.	Upewnij się, że serwer integracyjny **IntServer** działa, klikając prawym przyciskiem myszy na węzeł integracyjny **WORKNODE** (lewy dolny róg aplikacji) i **Refresh**.
 
 ![](../images/035.png)
 
 ## Testowanie aplikacji integracyjnej ShippingApp z wykorzystaniem Flow Exerciser
 
-Tej części ćwiczenia przetestujesz nasza aplikacje integracyjną. W tym celu wykorzystasz wbudowane narzędzie ACET do testowania przepływów – **Flow Exerciser**. Podczas testów wykorzystasz trzy przykładowe komunikaty, które skopiowałeś do projektu aplikacji na początku ćwiczenia. Komunikaty mają ustawione różne metody wysyłki (`shippingMethod`), aby przetestować wszystkie warianty odpowiedzi.
+Tej części ćwiczenia przetestujesz naszą aplikację integracyjną. W tym celu wykorzystasz wbudowane narzędzie ACET do testowania przepływów – **Flow Exerciser**. Podczas testów wykorzystasz trzy przykładowe komunikaty, które skopiowałeś do projektu aplikacji na początku ćwiczenia. Komunikaty mają ustawione różne metody wysyłki (`shippingMethod`), abyś mógł przetestować wszystkie warianty odpowiedzi.
 
 1.	Kliknij ikonę **Start flow exerciser** w (lewym górnym rogu okna przepływu), aby uruchomić **Flow Exerciser**, który stworzy plik BAR naszej aplikacji oraz wdroży ją na serwerze aplikacyjnym.
 
@@ -344,7 +331,7 @@ Dla tego testu wiadomość została przekierowana do systemu wysyłkowego **Sea*
 
 ![](../images/041.png)
 
-- Zweryfikuj `shippingStatus` w komunikatach testowym.
+- Zweryfikuj `shippingStatus` w komunikatach testowych.
 
 ![](../images/042.png)
 
@@ -364,7 +351,7 @@ Dla tego testu wiadomość została przekierowana do systemu wysyłkowego **Sea*
 
 ## Transformacja komunikatu z formatu XML na JSON wykorzystując węzeł Compute - Wstęp
 
-W tej części ćwiczenia będziesz transformować komunikat otrzymany z systemu wysyłkowego w formacie XML do komunikatu dla klienta w formacie JSON. Przy okazji wzbogacisz komjnikat o dwie informacje dt. ID wysyłki oraz dacie wykonania wysyłki.
+W tej części ćwiczenia będziesz transformować komunikat otrzymany z systemu wysyłkowego w formacie XML do komunikatu dla klienta w formacie JSON. Przy okazji wzbogacisz komunikat o dwie informacje dt. ID wysyłki oraz daty wykonania wysyłki.
 Przykładowy komunikat zwrotny z systemu wysyłkowego wygląda następująco:
 
 ```xml
@@ -410,7 +397,7 @@ Funkcje ESQL:
 
 ## Dodanie węzła Compute do przepływu
 
-1.	Rozwiń aplikacje **ShippingApp** i kliknij **ShippingService.msgflow**
+1.	Rozwiń aplikację **ShippingApp** i kliknij **ShippingService.msgflow**
 2.	Należy dodać węzeł **Compute** między węzłami **Sea** oraz **Train**, a węzłem HTTP Reply. Aby to zrobić w pierwszej kolejności usuń połączenia między węzłami **Sea** oraz **Train** oraz **HTTP Reply**, klikając prawym przyciskiem myszy na połączenie i **Delete**.
 
 ![](../images/045.png)
@@ -497,7 +484,7 @@ W tym ćwiczeniu skonfigurujesz port, na którym będzie uruchamiał się **Debu
  
 ![](../images/052.png)
 
-5.	Uruchom aplikacje **Postman** i dodaj nowe zapytanie klikając znak „**+**”. Wprowadź następujące dane:
+5.	Uruchom aplikację **Postman** i dodaj nowe zapytanie klikając znak „**+**”. Wprowadź następujące dane:
 
 - Request Type: `POST`
 - URL: `http://localhost:<HTTP_Port_IntServer>/shipping`
@@ -512,7 +499,7 @@ W tym ćwiczeniu skonfigurujesz port, na którym będzie uruchamiał się **Debu
 ![](../images/053.png)
 
 6.	Nie uruchamiaj jeszcze zapytania i wróć do ACET.
-7.	Teraz przejdziesz do konfiguracji i uruchomiania **Debuggera**. Kliknij prawym przyciskiem myszy na **IntServer** w **Integration Explorer**, a następnie **Lauch Debugger**.
+7.	Teraz przejdziesz do konfiguracji i uruchomienia **Debuggera**. Kliknij prawym przyciskiem myszy na **IntServer** w **Integration Explorer**, a następnie **Lauch Debugger**.
  
 ![](../images/054.png)
 
@@ -527,7 +514,7 @@ W tym ćwiczeniu skonfigurujesz port, na którym będzie uruchamiał się **Debu
 
 ![](../images/056.png)
 
-13.	Aby przejść dalej kliknij ikonę **Step Over**. Przeanalizują, jak zmieniają się pola komunikatu w zakładce **Variables**.
+13.	Aby przejść dalej kliknij ikonę **Step Over**. Przeanalizuj, jak zmieniają się pola komunikatu w zakładce **Variables**.
 
 ![](../images/057.png)
 
@@ -558,7 +545,7 @@ W tym ćwiczeniu skonfigurujesz port, na którym będzie uruchamiał się **Debu
 
 ## Podsumowanie
 
-Podczas wykonywania ćwiczenia dowiedziałeś się jak tworzy się aplikacje integracyjną w narzędziu IBM App Connect Enterprise Toolkit. Stworzyłeś przepływ integracyjny zawierający różne węzły integracyjne. Wykorzystałeś węzeł *Route*, aby przekierować komunikat w formacie XML w oparciu o wzorce filtra. Wykorzystałeś węzeł XML Transform, aby obsłużyć komunikat nie pasujący do wzorca. Użyłeś węzłów HTTP Request, aby odwołać się do zewnętrznych systemów web. Stworzyłeś serwer integracyjny oraz przetestowałeś przepływ integracyjny z wykorzystaniem narzędzia Flow Exerciser. Dowiedziałeś się jak wykorzystać węzeł Compute do transformacji komunikatu z formatu XML do formatu JSON. Przetestowałeś przepływ komunikatu z wykorzystaniem narzędzia Debugger. Dodatkowo zrozumiałeś składnie języka ESQL oraz cześć funkcji wykorzystywanych do pisania skryptów.
+Podczas wykonywania ćwiczenia dowiedziałeś się jak tworzy się aplikację integracyjną w narzędziu IBM App Connect Enterprise Toolkit. Stworzyłeś przepływ integracyjny zawierający różne węzły integracyjne. Wykorzystałeś węzeł *Route*, aby przekierować komunikat w formacie XML w oparciu o wzorce filtra. Wykorzystałeś węzeł XML Transform, aby obsłużyć komunikat nie pasujący do wzorca. Użyłeś węzłów HTTP Request, aby odwołać się do zewnętrznych systemów web. Stworzyłeś serwer integracyjny oraz przetestowałeś przepływ integracyjny z wykorzystaniem narzędzia Flow Exerciser. Dowiedziałeś się jak wykorzystać węzeł Compute do transformacji komunikatu z formatu XML do formatu JSON. Przetestowałeś przepływ komunikatu z wykorzystaniem narzędzia Debugger. Dodatkowo zrozumiałeś składnię języka ESQL oraz cześć funkcji wykorzystywanych do pisania skryptów.
 
 ## Skrypty
 
