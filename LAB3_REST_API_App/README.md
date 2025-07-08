@@ -6,7 +6,7 @@
 
 ## Opis ćwiczenia
 
-W tym ćwiczeniu stworzysz aplikacje REST API transactionAPI, gdzie zdefiniujesz prostą operację `GET` dla API `/transaction`. Definicje OpenAPI (v3) operacji stworzysz wykorzystując intuicyjne narzędzie *OpenAPI Editor*. W następnym kroku zaimplementujesz przepływ wiadomości, który zostanie zainicjowany po wywołaniu operacji `GET`. Przepływ pobierze wiadomość z wcześniej skonfigurowanej kolejki Q1 w formacie XML wykorzystując węzeł *MQ Get*, a nastepnie wykona mapowanie wiadomości na format JSON.
+W tym ćwiczeniu stworzysz aplikację REST API transactionAPI, gdzie zdefiniujesz prostą operację `GET` dla API `/transaction`. Definicje OpenAPI (v3) operacji stworzysz wykorzystując intuicyjne narzędzie *OpenAPI Editor*. W następnym kroku zaimplementujesz przepływ wiadomości, który zostanie zainicjowany po wywołaniu operacji `GET`. Przepływ pobierze wiadomość z wcześniej skonfigurowanej kolejki Q1 w formacie XML wykorzystując węzeł *MQ Get*, a nastepnie wykona mapowanie wiadomości na format JSON.
 
 ## Cele
 
@@ -18,7 +18,7 @@ Po ukończeniu tego ćwiczenia powinieneś potrafić:
 
 ## Wstęp
 
-Firma logistyczna chce udostępnić REST API dt. transakcji, które otrzymuje od swoich partnerów biznesowych. W tym celu chce wykorzysztać system kolejkowy MQ, gdzie umieszczane są wiadomości w formacie XML dt. transakcji. Operacja REST API ma pobierać transakcje dostępne w kolejce i wyświetlać je w formacje JSON, potrzebnym do daleszgo przetwarzania transakcji.
+Firma logistyczna chce udostępnić REST API dt. transakcji, które otrzymuje od swoich partnerów biznesowych. W tym celu chce wykorzysztać system kolejkowy MQ, gdzie umieszczane są wiadomości w formacie XML dt. transakcji. Operacja REST API ma pobierać transakcje dostępne w kolejce i wyświetlać je w formacje JSON, potrzebnym do dalszgo przetwarzania transakcji.
 
 ## Wymagania
 
@@ -29,10 +29,10 @@ Firma logistyczna chce udostępnić REST API dt. transakcji, które otrzymuje o
 
 ## Przygotowanie środowiska
 
-Uruchom aplikacje IBM App Connect Toolkit.
+Uruchom aplikację IBM App Connect Toolkit.
 
-1.	Kliknij w Search w pasku narzędzi i wyszukaj aplikacji IBM App Connect Enterprise Toolkit 12.
-2.	Kliknij w aplikacje, aby ją uruchomić.
+1.	Kliknij w Search w pasku narzędzi i wyszukaj aplikację IBM App Connect Enterprise Toolkit 12.
+2.	Kliknij w aplikację, aby ją uruchomić.
 
 ![](../images/001.png)
 
@@ -42,13 +42,13 @@ Uruchom aplikacje IBM App Connect Toolkit.
 
 ## Tworzenie aplikacji REST API transactionAPI
 
-1. Stórz nowy projetk aplikacji REST API:
+1. Stórz nowy projekt aplikacji REST API:
 
 - Kliknij **New..**, a następnie **REST API**.
 
 ![](../images/171.PNG)
 
-- Nazwij aplikacje `transactionAPI`, wybierz opcje *Create a REST API ...* (pozostaw wartości domyślne) i kliknij **Finish**.
+- Nazwij aplikację `transactionAPI`, wybierz opcje *Create a REST API ...* (pozostaw wartości domyślne) i kliknij **Finish**.
 
 ![](../images/172.PNG)
 
@@ -77,7 +77,7 @@ Uruchom aplikacje IBM App Connect Toolkit.
 
 ![](../images/176.PNG)
 
-- Stowrzyłeś prosta operację `GET`. Zapisz zamiany klikając **Save** i zamknij edytor OpenAPI.
+- Stworzyłeś prostą operację `GET`. Zapisz zamiany klikając **Save** i zamknij edytor OpenAPI.
 
 ![](../images/177.PNG)
 
@@ -89,7 +89,7 @@ Uruchom aplikacje IBM App Connect Toolkit.
 
 ![](../images/178.PNG)
 
-- Otowrzy się widok przepływu z węzłami **Input** oraz **Output**.
+- Otworzy się widok przepływu z węzłami **Input** oraz **Output**.
 
 3. Dodaj węzeł **MQ Get** do przepływu wyszukując go w *Palette*. Jest to węzeł, który pobierze wiadomość z kolejki.
 
@@ -203,8 +203,8 @@ Model danych, który załadowałeś jest odwzorowaniem schematu XML *Transaction
 > 
 > - Wyświetlanie serwerów integracji i zasobów serwerów integracji oraz zarządzanie nimi, np. wdrażanie plików BAR aplikacji oraz zatrzymywanie, uruchamianie lub usuwanie wdrożonych aplikacji.
 > - Tworzenie polityk operacyjnych i zarządzanie nimi.
-> - Praca ze statystykami i danymi rozliczeniowymi dla przepływów wiadomości.
-> - Praca ze statystykami dotyczącymi zasobów używanych przez serwery integracji.
+> - Prace ze statystykami i danymi rozliczeniowymi dla przepływów wiadomości.
+> - Prace ze statystykami dotyczącymi zasobów używanych przez serwery integracji.
 > - Uruchamianie i zatrzymywanie śledzenia użytkowników i usług.
 > - Push (eksportowanie) definicji jednego lub więcej wdrożonych interfejsów API REST do IBM API Connect.
 > - Tworzenie definicji transakcji biznesowych i monitorowanie transakcji biznesowych.
@@ -234,10 +234,10 @@ Model danych, który załadowałeś jest odwzorowaniem schematu XML *Transaction
 ![](../images/205.PNG)
 
 > [!NOTE]
-> Poświęc trochę czasu na eksploracje WebUI ACE.
+> Poświęc trochę czasu na eksplorację WebUI ACE.
 
 ***KONIEC ĆWICZENIA - Gratulacje!***
 
 ## Podsumowanie
 
-Podczas wykonywania ćwiczenia stworzyłeś prostą aplikacje REST API. Wykorzystałeś edytor *OpenAPI* do definicji operacji `GET`. Zaimplementowałeś przepływ wiadomości, który jest wykonywany po wywołaniu API. Wykorzystałeś węzeł *Mapping*, aby zmapować format XML na format JSON. Użyłeś węzłów *MQ Get*, aby pobrać komunikat z kolejki. Dodatkowo poznałeś WebUI ACE do administracji zasobami.
+Podczas wykonywania ćwiczenia stworzyłeś prostą aplikację REST API. Wykorzystałeś edytor *OpenAPI* do definicji operacji `GET`. Zaimplementowałeś przepływ wiadomości, który jest wykonywany po wywołaniu API. Wykorzystałeś węzeł *Mapping*, aby zmapować format XML na format JSON. Użyłeś węzłów *MQ Get*, aby pobrać komunikat z kolejki. Dodatkowo poznałeś WebUI ACE do administracji zasobami.
