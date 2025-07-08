@@ -206,7 +206,7 @@ W tej cześci ćwiczenia stworzysz apliakcję **EDI2XML_App**, która monitoruje
 
 ![](../images/130.PNG)
 
-Schemat XML (`EDIFact2XMLSchema_v1.xsd`) jest modelem danych przykładowego, uproszczonego komunikatu XML **TransactionInstruction**. Został on stowrzony na potrzeby tego ćwiczenia. Wygląda on następująco:
+Schemat XML (`EDIFact2XMLSchema_v1.xsd`) jest modelem danych przykładowego, uproszczonego komunikatu XML **TransactionInstruction**. Został stowrzony na potrzeby tego ćwiczenia. Wygląda następująco:
 
 ```xml
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
@@ -397,7 +397,7 @@ W nastepnym kroku stworzymy projekt polityki MQ, aby kontrolować wartości konf
 
 ![](../images/153.PNG)
 
-Reszte pozycji pozostaw bez zmian.
+Resztę pozycji pozostaw bez zmian.
 
 3. Zapisz politykę.
 
@@ -418,17 +418,17 @@ Reszte pozycji pozostaw bez zmian.
 
 ![](../images/155.PNG)
 
-2. Zapisz gotową aplikacje **EDI2XML_App**.
+2. Zapisz gotową aplikację **EDI2XML_App**.
 
 ## Testowanie aplikacji integracyjnej EDI2XML_App
 
-Zanim przejdzeimy do testowania musimy wdrożyć na serwer wykorzystywane w przepływie biblioteki oraz politykę MQ.
+Zanim przejdziemy do testowania, musimy wdrożyć na serwer wykorzystywane w przepływie biblioteki oraz politykę MQ.
 
-1. Aby wdrożyć biblioteki EDIFACT, nalży kliknąć prawym przycieskiem myszy na bibliotekę: **EDIFACT-Transport-SWGTECH-D96A**, a następnie kliknij **Deploy** i wybierz serwer integracyjny **IntServer**. 
+1. Aby wdrożyć biblioteki EDIFACT, należy kliknąć prawym przycieskiem myszy na bibliotekę: **EDIFACT-Transport-SWGTECH-D96A**, a następnie kliknąć **Deploy** i wybrać serwer integracyjny **IntServer**. 
 
 ![](../images/158.PNG)
 
-2. Aby wdrożyć projekt polityki MQ, należy kliknąć prawym przycieskiem myszy na projekt, a następnie kliknij **Deploy** i wybierz serwer integracyjny **IntServer**.
+2. Aby wdrożyć projekt polityki MQ, należy kliknąć prawym przycieskiem myszy na projekt, a następnie kliknąć **Deploy** i wybrać serwer integracyjny **IntServer**.
 
 ![](../images/156.PNG)
 
@@ -481,4 +481,4 @@ Wiadomość zozostała przetworzona zgodnie z naszymi oczekiwaniami.
 
 ## Podsumowanie
 
-Podczas wykonywania ćwiczenia stworzyłeś przepływ integracyjny zawierający różne węzły integracyjne. Wykorzystałeś węzeł *File Input*, aby monitorować folder wyjeściowy wiadomości EDIFACT. Wykorzystałeś węzeł *Mapping*, aby zmapować format EDIFACT na format XML. Skonfigutrowałeś lokalny system kolejkowy MQ oraz połączenie MQ z ACE poprzez politykę. Użyłeś węzłów *MQ Output*, aby wrzucić komunikat to kolejki. Przetestowałeś przepływ komunikatu z wykorzystaniem narzędzia *Flow Exerciser*. Dodatkowo zrozumiałeś składnie języka DFDL oraz użyłeś widoku *DFDL Test* do testowania, modelowania, analizowania i parsowania danych EDIFACT zgodnie ze schematem DFDL.
+Podczas wykonywania ćwiczenia stworzyłeś przepływ integracyjny zawierający różne węzły integracyjne. Wykorzystałeś węzeł *File Input*, aby monitorować folder wyjeściowy wiadomości EDIFACT. Wykorzystałeś węzeł *Mapping*, aby zmapować format EDIFACT na format XML. Skonfigutrowałeś lokalny system kolejkowy MQ oraz połączenie MQ z ACE poprzez politykę. Użyłeś węzłów *MQ Output*, aby wysłać komunikat to kolejki. Przetestowałeś przepływ komunikatu z wykorzystaniem narzędzia *Flow Exerciser*. Dodatkowo zrozumiałeś składnię języka DFDL oraz użyłeś widoku *DFDL Test* do testowania, modelowania, analizowania i parsowania danych EDIFACT zgodnie ze schematem DFDL.
