@@ -6,7 +6,7 @@
 
 ## Opis ćwiczenia
 
-W tym ćwiczeniu stworzysz aplikacje integracyjną „EDI2XML_App”, która będzie monitorowała, czy we wskazanym przez Ciebie folderze pojawił sie plik w formacie `.edi`. Plik zostanie pobrany, sparsowany i przekazany do węzła mapującego wartości z dokumentu EDIFACT do odpowiednich pól w formacie XML. Sformatowana wiadomość zostanie przesłana do kolejki MQ. 
+W tym ćwiczeniu stworzysz aplikację integracyjną „EDI2XML_App”, która będzie monitorowała, czy we wskazanym przez Ciebie folderze pojawił sie plik w formacie `.edi`. Plik zostanie pobrany, sparsowany i przekazany do węzła mapującego wartości z dokumentu EDIFACT do odpowiednich pól w formacie XML. Sformatowana wiadomość zostanie przesłana do kolejki MQ. 
 
 ## Cele
 
@@ -15,12 +15,12 @@ Po ukończeniu tego ćwiczenia powinieneś potrafić:
 - Użyć widoku *DFDL Test* do testowania, modelowania, analizowania i parsowania danych EDIFACT zgodnie ze schematem DFDL.
 - Importować i korzystać z udostępnionych bibliotek.
 - Użyć węzła *Mapping* do mapowania wiadomości w formacie EDIFACT do formatu XML.
-- Stowrzyć politykę pozwalającą połączyć się z MQ.
+- Stworzyć politykę pozwalającą połączyć się z MQ.
 - Skonfigurować menadżera kolejek, kolejkę oraz węzeł *MQInput*.
 
 ## Wstęp
 
-Firma logistyczna otrzymuje komunikaty w formacie `.edi` do wskazanej lokalizacji. Potrzebujemy stowrzć aplikacje, która przetworzy i zrozumie poszczególne transakcje zawarte w pliku, a następnie zmapuje je na odpowiedni format XML. Aplikacja powinna wrzucać zmapowane wiadomości do kolejki MQ, aby następna aplikacja mogła pobrać wiadomość niezależnie od systemu wysyłającego komunikat.
+Firma logistyczna otrzymuje komunikaty w formacie `.edi` do wskazanej lokalizacji. Potrzebujemy stowrzć aplikację, która przetworzy i zrozumie poszczególne transakcje zawarte w pliku, a następnie zmapuje je na odpowiedni format XML. Aplikacja powinna wysyłać zmapowane wiadomości do kolejki MQ, aby następna aplikacja mogła pobrać wiadomość niezależnie od systemu wysyłającego komunikat.
 
 ## Wymagania
 
@@ -31,10 +31,10 @@ Firma logistyczna otrzymuje komunikaty w formacie `.edi` do wskazanej lokalizacj
 
 ## Przygotowanie środowiska
 
-Uruchom aplikacje IBM App Connect Toolkit.
+Uruchom aplikację IBM App Connect Toolkit.
 
-1.	Kliknij w Search w pasku narzędzi i wyszukaj aplikacji IBM App Connect Enterprise Toolkit 12.
-2.	Kliknij w aplikacje, aby ją uruchomić.
+1.	Kliknij w Search w pasku narzędzi i wyszukaj aplikację IBM App Connect Enterprise Toolkit 12.
+2.	Kliknij w aplikację, aby ją uruchomić.
 
 ![](../images/001.png)
 
@@ -68,7 +68,7 @@ UN/EDIFACT to międzynarodowy standard wymiany informacji EDI w sektorach komerc
 
 Edytor schematów DFDL, z którego skorzystamy, służy do przeglądania modelu i analizowania przykładowych plików danych EDIFACT.
 
-Biblioteka **EDIFACT-Transport-SWGTECH-D96A** zawiera parę schematów DFDL, które modelują komunikaty UN/EDIFACT dla wersji D.96A. Dostępna jest definicje typów komunikatów `IFTMIN`. Biblioteka zawiera pliki danych testowych. Biblioteka EDIFACT-Common zawiera schemat DFDL do definiowania wartości domyślnych dla właściwości DFDL oraz schemat DFDL do modelowania segmentów usług Uxx i komunikatów usług.
+Biblioteka **EDIFACT-Transport-SWGTECH-D96A** zawiera parę schematów DFDL, które modelują komunikaty UN/EDIFACT dla wersji D.96A. Dostępne są definicje typów komunikatów `IFTMIN`. Biblioteka zawiera pliki danych testowych. Biblioteka EDIFACT-Common zawiera schemat DFDL do definiowania wartości domyślnych dla właściwości DFDL oraz schemat DFDL do modelowania segmentów usług Uxx i komunikatów usług.
 
 1. Biblioteki są wyświetlane w widoku **Application Development** obszaru roboczego. Kliknij dwukrotnie Schemat DFDL `EDIFACT-Transport-SWGTECH-Messages-D96A.xsd` w bibliotece **EDIFACT-Transport-SWGTECH-D96A**. Komunikat *Interchange* jest podświetlony i modeluje całą wymianę EDIFACT. Główny widok edytora pokazuje logiczne komponenty komunikatu, takie jak elementy i sekwencje. Strukturę komunikatu *Interchange* można eksplorować poprzez rozwijanie elementów.
 
@@ -135,7 +135,7 @@ Obie biblioteki współdzielone można wdrożyć do węzła integracyjnego w cel
 
 ## Tworzenie aplikacji integracyjnej EDI2XML_App
 
-W tej cześci ćwiczenia stworzysz apliakcje **EDI2XML_App**, która monitoruje folder `tmp`, pobiera plik `.edi`, mapuje wiadomość na format XML, a następnie wstawia do kolejki MQ.
+W tej cześci ćwiczenia stworzysz apliakcję **EDI2XML_App**, która monitoruje folder `tmp`, pobiera plik `.edi`, mapuje wiadomość na format XML, a następnie wstawia do kolejki MQ.
 
 1. Tworzenie przepływu aplikacji:
 
