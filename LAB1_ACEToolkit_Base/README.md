@@ -299,7 +299,7 @@ Na tym etapie stworzysz nowy serwer integracyjny z poziomu IBM App Connect Enter
 
 ## Testowanie aplikacji integracyjnej ShippingApp z wykorzystaniem Flow Exerciser
 
-Tej części ćwiczenia przetestujesz naszą aplikację integracyjną. W tym celu wykorzystasz wbudowane narzędzie ACET do testowania przepływów – **Flow Exerciser**. Podczas testów wykorzystasz trzy przykładowe komunikaty, które skopiowałeś do projektu aplikacji na początku ćwiczenia. Komunikaty mają ustawione różne metody wysyłki (`shippingMethod`), abyś mógł przetestować wszystkie warianty odpowiedzi.
+W tej części ćwiczenia przetestujesz naszą aplikację integracyjną. W tym celu wykorzystasz wbudowane narzędzie ACET do testowania przepływów – **Flow Exerciser**. Podczas testów wykorzystasz trzy przykładowe komunikaty, które skopiowałeś do projektu aplikacji na początku ćwiczenia. Komunikaty mają ustawione różne metody wysyłki (`shippingMethod`), abyś mógł przetestować wszystkie warianty odpowiedzi.
 
 1.	Kliknij ikonę **Start flow exerciser** w (lewym górnym rogu okna przepływu), aby uruchomić **Flow Exerciser**, który stworzy plik BAR naszej aplikacji oraz wdroży ją na serwerze aplikacyjnym.
 
@@ -385,12 +385,12 @@ Naszym zadaniem jest transformacja komunikatu do następującego formatu JSON:
     }
 ```
 
-Dodane zostały pola `shipID` oraz `shipTimestamp`. Operacje transformacji wykonasz wykorzystując skrypt napisany w języku ESQL działający w węźle **Compute**. W zadaniu wykorzystasz następujące instrukcje i funkcje ESQL:
+Dodane zostały pola `shipID` oraz `shipTimestamp`. Operację transformacji wykonasz wykorzystując skrypt napisany w języku ESQL działający w węźle **Compute**. W zadaniu wykorzystasz następujące instrukcje i funkcje ESQL:
 
 Polecenia ESQL:
 
 - [CREATE LASTCHILD OF …. DOMAIN](https://www.ibm.com/docs/en/app-connect/12.0?topic=statements-create-statement) – polecenie, które zamienia format ostatecznego stanu istniejącego pola.
-- [CREATE FIELD](https://www.ibm.com/docs/en/app-connect/12.0?topic=statements-create-statement) – polecenie definiująca nową pole.
+- [CREATE FIELD](https://www.ibm.com/docs/en/app-connect/12.0?topic=statements-create-statement) – polecenie definiująca nowe pole.
 - [DECLARE … REFERENCE TO …](https://www.ibm.com/docs/en/app-connect/12.0?topic=statements-declare-statement) - polecenie definiuje zmienną jako odniesienie do innego pola.
 - [SET](https://www.ibm.com/docs/en/app-connect/12.0?topic=statements-set-statement) – polecenie przypisuje wartość zmiennej.
 
@@ -464,7 +464,7 @@ Funkcje ESQL:
 
 7.	Sprawdź uzupełniony skrypt z przykładowymi komentarzami w `<path-to-libfiles>\ShippingService_XML2JSON.esql` lub ze wzorem na końcu instrukcji.
 8.	Zapisz skrypt ESQL i wróć do zakładki **ShippingService.msgflow**.
-9.	Kliknij na węzeł **XML2JSON** i przejść do zakładki *Basic* w panelu Prope*rties.
+9.	Kliknij na węzeł **XML2JSON** i przejść do zakładki *Basic* w panelu Properties.
 10.	 W polu **ESQL module** kliknij **Browse…** i wybierz `{default}:ShippingService_XML2JSON`, a następnie kliknij **OK**. W ten sposób zdefiniowałeś moduł ESQL, z którego korzysta węzeł Compute.
 
 ![](../images/048.png)
@@ -509,7 +509,7 @@ W tym ćwiczeniu skonfigurujesz port, na którym będzie uruchamiał się **Debu
 
 8.	W oknie **Launch Debugger** kliknij **Configure…**
 9.	Wpisz port `9998`, a następnie **OK**. Zaczekaj, aż serwer integracyjny się zrestartuje i kliknij **OK**.
-10.	**Debugger** jest uruchomiony, przejdź teraz do widoku **Debuggera**. Aby to zrobić kliknij na pasku zakładek **Window --> Perspective --> Open Perspective --> Debug** klikając w prawym górnym roku na ikonę **Debug**.
+10.	**Debugger** jest uruchomiony, przejdź teraz do widoku **Debuggera**. Aby to zrobić kliknij na pasku zakładek **Window --> Perspective --> Open Perspective --> Debug** klikając w prawym górnym rogu na ikonę **Debug**.
 
 ![](../images/055.png)
 
@@ -549,7 +549,7 @@ W tym ćwiczeniu skonfigurujesz port, na którym będzie uruchamiał się **Debu
 
 ## Podsumowanie
 
-Podczas wykonywania ćwiczenia dowiedziałeś się jak tworzy się aplikację integracyjną w narzędziu IBM App Connect Enterprise Toolkit. Stworzyłeś przepływ integracyjny zawierający różne węzły integracyjne. Wykorzystałeś węzeł *Route*, aby przekierować komunikat w formacie XML w oparciu o wzorce filtra. Wykorzystałeś węzeł XML Transform, aby obsłużyć komunikat nie pasujący do wzorca. Użyłeś węzłów HTTP Request, aby odwołać się do zewnętrznych systemów web. Stworzyłeś serwer integracyjny oraz przetestowałeś przepływ integracyjny z wykorzystaniem narzędzia Flow Exerciser. Dowiedziałeś się jak wykorzystać węzeł Compute do transformacji komunikatu z formatu XML do formatu JSON. Przetestowałeś przepływ komunikatu z wykorzystaniem narzędzia Debugger. Dodatkowo zrozumiałeś składnię języka ESQL oraz cześć funkcji wykorzystywanych do pisania skryptów.
+Podczas wykonywania ćwiczenia dowiedziałeś się jak tworzy się aplikację integracyjną w narzędziu IBM App Connect Enterprise Toolkit. Stworzyłeś przepływ integracyjny zawierający różne węzły integracyjne. Wykorzystałeś węzeł *Route*, aby przekierować komunikat w formacie XML w oparciu o wzorce filtra. Wykorzystałeś węzeł XML Transform, aby obsłużyć komunikat nie pasujący do wzorca. Użyłeś węzłów HTTP Request, aby odwołać się do zewnętrznych systemów web. Stworzyłeś serwer integracyjny, oraz przetestowałeś przepływ integracyjny z wykorzystaniem narzędzia Flow Exerciser. Dowiedziałeś się jak wykorzystać węzeł Compute do transformacji komunikatu z formatu XML do formatu JSON. Przetestowałeś przepływ komunikatu z wykorzystaniem narzędzia Debugger. Dodatkowo zrozumiałeś składnię języka ESQL oraz cześć funkcji wykorzystywanych do pisania skryptów.
 
 ## Skrypty
 
