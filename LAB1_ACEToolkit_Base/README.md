@@ -18,7 +18,7 @@ Po ukończeniu tego ćwiczenia powinieneś potrafić:
 - Stworzyć serwer integracyjny pod node’m integracyjnym.
 - Użyć węzła Compute do transformacji wiadomości w formacie XML do formatu JSON z wykorzystaniem języka ESQL.
 - Rozumieć składnię skryptów ESQL.
-- Przetestować przepływ komunikatu z wykorzystaniem funkcji *Debugger*.
+- Przetestować przepływ komunikatu z wykorzystaniem funkcji *Debugger*. 
 
 ## Wstęp
 
