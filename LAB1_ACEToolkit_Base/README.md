@@ -270,8 +270,7 @@ Na tym etapie skonfigurujesz węzły i dodasz połączenia między poszczególny
 Na tym etapie stworzysz nowy serwer integracyjny z poziomu IBM App Connect Enterprise Console.
 
 > [!NOTE]
-> **Integration Node (IN)** to kontener zarządzający wieloma Integration Serverami.
-
+> **Integration Node (IN)** to kontener zarządzający wieloma Integration Serverami. 
 > **Integration Server (IS)** to serwer wykonawczy, który uruchamia i obsługuje Twoje przepływy integracyjne (message flows).
 
 1.	Aby uruchomić konsolę ACE, kliknij w *Search* w pasku narzędzi i wpisz `App Connect`, a następnie kliknij prawym przyciskiem myszy na aplikację **IBM App Connect Enterprise Console** i kliknij **Run as administrator**.
