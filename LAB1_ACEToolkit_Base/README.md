@@ -22,7 +22,7 @@ Po ukończeniu tego ćwiczenia powinieneś potrafić:
 
 ## Wstęp
 
-Firma logistyczna ma dwa systemy obsługujące przesyłki w zależności od metody wysyłki – *Sea* (wysyłka morska) oraz *Train* (wysyłka lądowa: kolej). Potrzebujemy stworzyć aplikację integracyjną, która przekieruje zamówienie złożone przez klienta do odpowiedniego systemu wysyłkowego. Komunikat zamówienia jest w formacie XML i zawiera następujące informacje: identyfikator użytkowania (`userID`), nazwę użytkowanika (`userName`), identyfikator produktu (`prodID`), ilość zamówionego produktu (`quantity`) oraz metodę wysyłki (`shippingMethod`). Przykład komunikatu:
+Firma logistyczna ma dwa systemy obsługujące przesyłki w zależności od metody wysyłki – *Sea* (wysyłka morska) oraz *Train* (wysyłka lądowa: kolej). Potrzebujemy stworzyć aplikację integracyjną, która przekieruje zamówienie złożone przez klienta do odpowiedniego systemu wysyłkowego. Komunikat zamówienia jest w formacie XML i zawiera następujące informacje: identyfikator użytkowania (`userID`), nazwę użytkownika (`userName`), identyfikator produktu (`prodID`), ilość zamówionego produktu (`quantity`) oraz metodę wysyłki (`shippingMethod`). Przykład komunikatu:
 
 ```xml
     <Customer>
@@ -52,8 +52,8 @@ Schemat XML (`ShippingShemaValidation.xsd`) opisujący komunikat wygląda nastę
 W aplikacji integracyjnej dodasz węzeł *Route* do przepływu komunikatów, dzięki czemu odpowiedzi systemu na wiadomości będą udzielane na podstawie metody wysyłki (`shippingMethod`) zawartej w komunikacie.
 
 W tym ćwiczeniu zdefiniujesz terminale wyjściowe, aby uzyskać kontrolę nad przepływem komunikatów.
-- Jeśli wartość `shippingMethod` będzie równa *Sea*, komunikat jest kierowany do terminala wyjściowego o nazwie *Sea* do węzła zapytania HTTP o nazwie *Sea*.
-- Jeśli wartość `shippingMethod` będzie równa *Train*, komunikat jest kierowany do terminala wyjściowego o nazwie *Sea* do węzła zapytania HTTP o nazwie *Train*.
+- Jeśli wartość `shippingMethod` jest równa *Sea*, komunikat jest kierowany do terminala wyjściowego o nazwie *Sea* do węzła zapytania HTTP o nazwie *Sea*.
+- Jeśli wartość `shippingMethod` jest równa *Train*, komunikat jest kierowany do terminala wyjściowego o nazwie *Sea* do węzła zapytania HTTP o nazwie *Train*.
 - Jeśli wiadomość jest nieznana, komunikat jest kierowany do węzła o nazwie *Uknown*.
 Po odpowiednim skierowaniu komunikatu dostaniemy odpowiedź od systemu wysyłkowego potwierdzającą wykonanie zlecenia.
 
@@ -269,7 +269,7 @@ Na tym etapie skonfigurujesz węzły i dodasz połączenia między poszczególny
 
 Na tym etapie stworzysz nowy serwer integracyjny z poziomu IBM App Connect Enterprise Console.
 
-1.	Aby uruchomić konsolę ACE, kliknij w *Search* w pasku narzędzi i wpisz `App Connect`, a następnie kliknij prawym przyciskiem myszy na aplikację **IBM App Connect Enterprise Console** i kliknij **Rur as administrator**.
+1.	Aby uruchomić konsolę ACE, kliknij w *Search* w pasku narzędzi i wpisz `App Connect`, a następnie kliknij prawym przyciskiem myszy na aplikację **IBM App Connect Enterprise Console** i kliknij **Run as administrator**.
 
 ![](../images/033.png)
 
