@@ -6,7 +6,7 @@
 
 ## Opis ćwiczenia
 
-W tym ćwiczeniu stworzysz aplikacje integracyjną „ShippingApp”, która w pierwszej kolejności skieruje komunikat dt. wysyłki towaru w formacie XML od klienta do odpowiedniej usługi obsługującej zgłoszenie w zależności od metody wysyłki, a następnie stransformuje wiadomość do formatu JSON oraz wzbogaci komunikat o informacje dt. transakcji wysyłki. W tym celu wykorzystasz węzeł *Route*, aby odpowiednio przekierować komunikat oraz moduł *Compute* do transformacji danych.
+W tym ćwiczeniu stworzysz aplikację integracyjną „ShippingApp”, która w pierwszej kolejności skieruje komunikat dt. wysyłki towaru w formacie XML od klienta do odpowiedniej usługi obsługującej zgłoszenie w zależności od metody wysyłki, a następnie stransformuje wiadomość do formatu JSON oraz wzbogaci komunikat o informacje dt. transakcji wysyłki. W tym celu wykorzystasz węzeł *Route*, aby odpowiednio przekierować komunikat oraz moduł *Compute* do transformacji danych.
 
 ## Cele
 
