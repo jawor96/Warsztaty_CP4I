@@ -71,7 +71,7 @@ Edytor schematów DFDL, z którego skorzystamy, służy do przeglądania modelu 
 Biblioteka **EDIFACT-Transport-SWGTECH-D96A** zawiera parę schematów DFDL, które modelują komunikaty UN/EDIFACT dla wersji D.96A. Dostępne są definicje typów komunikatów `IFTMIN`. Biblioteka zawiera pliki danych testowych. Biblioteka EDIFACT-Common zawiera schemat DFDL do definiowania wartości domyślnych dla właściwości DFDL oraz schemat DFDL do modelowania segmentów usług Uxx i komunikatów usług.
 
 > [!NOTE]
-> Jeżeli nie jest widoczny panel "Application Development" po prawej stronie to kliknij Window->Perspective->Open Perspective->Other... i wybierz Integration Development
+> Jeżeli nie jest widoczny panel "Application Development" po prawej stronie to kliknij Window- > Perspective- > Open Perspective -> Other... i wybierz Integration Development.
 
 1. Biblioteki są wyświetlane w widoku **Application Development** obszaru roboczego. Kliknij dwukrotnie Schemat DFDL `EDIFACT-Transport-SWGTECH-Messages-D96A.xsd` w bibliotece **EDIFACT-Transport-SWGTECH-D96A**. Komunikat *Interchange* jest podświetlony i modeluje całą wymianę EDIFACT. Główny widok edytora pokazuje logiczne komponenty komunikatu, takie jak elementy i sekwencje. Strukturę komunikatu *Interchange* można eksplorować poprzez rozwijanie elementów.
 
@@ -105,7 +105,7 @@ Renderowanie każdego komponentu logicznego jest opisane przez właściwości DF
 
 ![](../images/111.PNG)
 
-5. Wyświetlone zostaną wyniki parsowania testowego. Powinien zostać wyświetlony komunikat *"Parsowanie zakończone pomyślnie"*. Możesz zamknąć ten komunikat.
+5. Wyświetlone zostaną wyniki parsowania testowego. Powinien zostać wyświetlony komunikat *"Parsowanie zakończone pomyślnie"* (Parsing completed successfully). Możesz zamknąć ten komunikat.
 6. Przeanalizowany plik danych można wyświetlić w widoku **DFDL Test - Parse**. Wyniki parsowania można wyświetlić w widoku **DFDL Test - Logical Instance** jako drzewo lub XML. Dziennik działań parsera można wyświetlić w widoku **DFDL Test - Trace**.
 
 ![](../images/112.PNG)
@@ -123,18 +123,18 @@ Renderowanie każdego komponentu logicznego jest opisane przez właściwości DF
 
 ![](../images/115.PNG)
 
-8. Wyświetlone zostaną wyniki testu serializacji. Powinien zostać wyświetlony komunikat *"Serializacja zakończone pomyślnie"*. Możesz zamknąć ten komunikat.
+8. Wyświetlone zostaną wyniki testu serializacji. Powinien zostać wyświetlony komunikat *"Serializacja zakończone pomyślnie"* (Serialization completed successfully). Możesz zamknąć ten komunikat.
 9. Zserializowany plik danych można wyświetlić w widoku **DFDL Test - Serialize**. Dziennik działań serializatora można wyświetlić w widoku **DFDL Test - Trace**.
 
 ![](../images/116.PNG)
 
-Dostarczone schematy DFDL pozwalaną na analizę komunikatów w potrzebnym formacie EDIFACT.
+Dostarczone schematy DFDL pozwalają na analizę komunikatów w potrzebnym formacie EDIFACT.
 
 Jeśli wymagana jest obsługa składni UN/EDIFACT w wersji 3 zamiast składni w wersji 4, można edytować plik `IBM_EDI_Format.xsd` w bibliotece EDIFACT-Common. W tym pliku należy ustawić zmienną RepeatSep DFDL tak, aby przyjmowała wartość domyślną „**+**” (plus) zamiast „*” (gwiazdka).
 
 Jeśli chcesz obsługiwać „**,**” (przecinek) jako domyślny separator dziesiętny zamiast „**.**” (kropka), możesz edytować plik `IBM_EDI_Format.xsd` w bibliotece EDIFACT-Common. W tym pliku należy zmienić zmienną DecimalSep DFDL, aby przyjąć domyślną wartość „**,**” (przecinek) zamiast „**.**” (kropka).
 
-Obie biblioteki współdzielone można wdrożyć do węzła integracyjnego w celu wykorzystania przez przepływy komunikatów.
+Obie współdzielone biblioteki można wdrożyć do węzła integracyjnego w celu wykorzystania przez przepływy komunikatów.
 
 ## Tworzenie aplikacji integracyjnej EDI2XML_App
 
@@ -150,7 +150,7 @@ W tej cześci ćwiczenia stworzysz apliakcję **EDI2XML_App**, która monitoruje
 
 ![](../images/118.PNG)
 
-- Nazwij aplikacje `EDI2XML_App` i kliknij **Next**.
+- Nazwij aplikację `EDI2XML_App` i kliknij **Next**.
 
 ![](../images/119.PNG)
 
@@ -287,7 +287,7 @@ Wykorzystamy ten model danych jako docelowy format wiadomości wyjściowej.
 | UNZ-E0020-InterchangeControlReference | InterchangeTrailer-InterchangeControlReference |
 
 <details>
-<summary><b><font color="dodgerblue">Kliknij, aby otowrzyć:</font></b> Instrukcja połączenia poszczególnych komponentów "Mapy"</summary>
+<summary><b><font color="dodgerblue">Kliknij, aby otworzyć:</font></b> Instrukcja połączenia poszczególnych komponentów "Mapy"</summary>
 
 1. Połączenia w sekcji **InterchangeHeader**.
 
