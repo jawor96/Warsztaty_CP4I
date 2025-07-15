@@ -20,7 +20,7 @@ Po ukończeniu tego ćwiczenia powinieneś potrafić:
 
 ## Wstęp
 
-Firma logistyczna otrzymuje komunikaty w formacie `.edi` do wskazanej lokalizacji. Potrzebujemy stowrzć aplikację, która przetworzy i zrozumie poszczególne transakcje zawarte w pliku, a następnie zmapuje je na odpowiedni format XML. Aplikacja powinna wysyłać zmapowane wiadomości do kolejki MQ, aby następna aplikacja mogła pobrać wiadomość niezależnie od systemu wysyłającego komunikat.
+Firma logistyczna otrzymuje komunikaty w formacie `.edi` do wskazanej lokalizacji. Potrzebujemy stworzć aplikację, która przetworzy i zrozumie poszczególne transakcje zawarte w pliku, a następnie zmapuje je na odpowiedni format XML. Aplikacja powinna wysyłać zmapowane wiadomości do kolejki MQ, aby następna aplikacja mogła pobrać wiadomość niezależnie od systemu wysyłającego komunikat.
 
 ## Wymagania
 
