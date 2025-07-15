@@ -361,7 +361,7 @@ W tym etapie skonfigurujemy menadżera kolejek MQ (QM1) oraz lokalną kolejkę Q
 
 **IBM MQ Explorer** to graficzny interfejs użytkownika, za pomocą którego można administrować i monitorować obiekty IBM MQ, niezależnie od tego, czy są one hostowane na komputerze lokalnym, czy w systemie zdalnym. Można zdalnie łączyć się z menedżerami kolejek działającymi na dowolnej obsługiwanej platformie, umożliwiając przeglądanie, eksplorowanie i modyfikowanie całego szkieletu przesyłania wiadomości z poziomu UI. 
 
-9. Kliknij ikonę "+/-" w prawym górnym rogu, która pozwoli Ci zobaczyć wszystkie systemowe elemtny menedżera kolejek **QM1**, a następnie przejdź do folderu "*Nasłuchiwanie*" (Listening).
+9. Kliknij ikonę "+/-" w prawym górnym rogu, która pozwoli Ci zobaczyć wszystkie systemowe elementy menedżera kolejek **QM1**, a następnie przejdź do folderu "*Nasłuchiwanie*" (Listening).
 
 ![](../images/146.PNG)
 
@@ -435,9 +435,9 @@ Zanim przejdziemy do testowania, musimy wdrożyć na serwer wykorzystywane w pr
 
 ![](../images/156.PNG)
 
-Teraz mamy na serwerze szystkie potrzebne komponenty, aby wdrożyć aplikacje **EDI2XML_App**.
+Teraz mamy na serwerze wszystkie potrzebne komponenty, aby wdrożyć aplikacje **EDI2XML_App**.
 
-3. Do testowania aplikacji wykorzystasz narzędzie **Flow Exerciser**, które wdroży aplikacje na serwer oraz prześledzi komunikaty na każdym etapie przepływu:
+3. Do testowania aplikacji wykorzystasz narzędzie **Flow Exerciser**, które wdroży aplikację na serwer oraz prześledzi komunikaty na każdym etapie przepływu:
 
 - Kliknij ikonę "nagrywania" przy **Flow Exerciser**.
 
@@ -460,7 +460,7 @@ Teraz mamy na serwerze szystkie potrzebne komponenty, aby wdrożyć aplikacje *
 
 ![](../images/162.PNG)
 
-8. Kliknij na druga "kopertę" pokazującą komunikat zmapowany na format XML przez węzeł **Mapping**. Rozwiń zakładkę *message* oraz *XMLNSC*, aby przeanalizować wiadomość.
+8. Kliknij na drugą "kopertę" pokazującą komunikat zmapowany na format XML przez węzeł **Mapping**. Rozwiń zakładkę *message* oraz *XMLNSC*, aby przeanalizować wiadomość.
 
 ![](../images/163.PNG)
 
@@ -484,4 +484,4 @@ Wiadomość zozostała przetworzona zgodnie z naszymi oczekiwaniami.
 
 ## Podsumowanie
 
-Podczas wykonywania ćwiczenia stworzyłeś przepływ integracyjny zawierający różne węzły integracyjne. Wykorzystałeś węzeł *File Input*, aby monitorować folder wyjeściowy wiadomości EDIFACT. Wykorzystałeś węzeł *Mapping*, aby zmapować format EDIFACT na format XML. Skonfigutrowałeś lokalny system kolejkowy MQ oraz połączenie MQ z ACE poprzez politykę. Użyłeś węzłów *MQ Output*, aby wysłać komunikat to kolejki. Przetestowałeś przepływ komunikatu z wykorzystaniem narzędzia *Flow Exerciser*. Dodatkowo zrozumiałeś składnię języka DFDL oraz użyłeś widoku *DFDL Test* do testowania, modelowania, analizowania i parsowania danych EDIFACT zgodnie ze schematem DFDL.
+Podczas wykonywania ćwiczenia stworzyłeś przepływ integracyjny zawierający różne węzły integracyjne. Wykorzystałeś węzeł *File Input*, aby monitorować folder wyjściowy wiadomości EDIFACT. Wykorzystałeś węzeł *Mapping*, aby zmapować format EDIFACT na format XML. Skonfigutrowałeś lokalny system kolejkowy MQ oraz połączenie MQ z ACE poprzez politykę. Użyłeś węzłów *MQ Output*, aby wysłać komunikat to kolejki. Przetestowałeś przepływ komunikatu z wykorzystaniem narzędzia *Flow Exerciser*. Dodatkowo zrozumiałeś składnię języka DFDL oraz użyłeś widoku *DFDL Test* do testowania, modelowania, analizowania i parsowania danych EDIFACT zgodnie ze schematem DFDL.
