@@ -20,7 +20,7 @@ Po ukończeniu tego ćwiczenia powinieneś potrafić:
 
 ## Wstęp
 
-Firma logistyczna otrzymuje komunikaty w formacie `.edi` do wskazanej lokalizacji. Potrzebujemy stworzć aplikację, która przetworzy i zrozumie poszczególne transakcje zawarte w pliku, a następnie zmapuje je na odpowiedni format XML. Aplikacja powinna wysyłać zmapowane wiadomości do kolejki MQ, aby następna aplikacja mogła pobrać wiadomość niezależnie od systemu wysyłającego komunikat.
+Firma logistyczna otrzymuje komunikaty w formacie `.edi` do wskazanej lokalizacji. Potrzebujemy stworzyć aplikację, która przetworzy i zrozumie poszczególne transakcje zawarte w pliku, a następnie zmapuje je na odpowiedni format XML. Aplikacja powinna wysyłać zmapowane wiadomości do kolejki MQ, aby następna aplikacja mogła pobrać wiadomość niezależnie od systemu wysyłającego komunikat.
 
 ## Wymagania
 
@@ -69,6 +69,9 @@ UN/EDIFACT to międzynarodowy standard wymiany informacji EDI w sektorach komerc
 Edytor schematów DFDL, z którego skorzystamy, służy do przeglądania modelu i analizowania przykładowych plików danych EDIFACT.
 
 Biblioteka **EDIFACT-Transport-SWGTECH-D96A** zawiera parę schematów DFDL, które modelują komunikaty UN/EDIFACT dla wersji D.96A. Dostępne są definicje typów komunikatów `IFTMIN`. Biblioteka zawiera pliki danych testowych. Biblioteka EDIFACT-Common zawiera schemat DFDL do definiowania wartości domyślnych dla właściwości DFDL oraz schemat DFDL do modelowania segmentów usług Uxx i komunikatów usług.
+
+> [!NOTE]
+> Jeżeli nie jest widoczny panel "Application Development" po prawej stronie to kliknij Window->Perspective->Open Perspective->Other... i wybierz Integration Development
 
 1. Biblioteki są wyświetlane w widoku **Application Development** obszaru roboczego. Kliknij dwukrotnie Schemat DFDL `EDIFACT-Transport-SWGTECH-Messages-D96A.xsd` w bibliotece **EDIFACT-Transport-SWGTECH-D96A**. Komunikat *Interchange* jest podświetlony i modeluje całą wymianę EDIFACT. Główny widok edytora pokazuje logiczne komponenty komunikatu, takie jak elementy i sekwencje. Strukturę komunikatu *Interchange* można eksplorować poprzez rozwijanie elementów.
 
