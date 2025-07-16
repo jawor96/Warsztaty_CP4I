@@ -186,7 +186,7 @@ Model danych, który załadowałeś jest odwzorowaniem schematu XML *Transaction
 
 ## Testowanie aplikacji REST API – transactionAPI
 
-1. Aby prztestować API, należy wdrożyć aplikacje **transactionAPI** na serwer **IntServer**.
+1. Aby przetestować API, należy wdrożyć aplikacje **transactionAPI** na serwer **IntServer**.
 
 - Kliknij prawym przycieskiem myszy na projekt, a następnie kliknij **Deploy** i wybierz serwer integracyjny **IntServer**.
 
@@ -210,7 +210,7 @@ Model danych, który załadowałeś jest odwzorowaniem schematu XML *Transaction
 > - Tworzenie definicji transakcji biznesowych i monitorowanie transakcji biznesowych.
 
 - Wejdź w serwer integracyjny **IntServer**, a następnie przejdź do aplikacji **transaction API**.
-- W widoku aplikacji kliknij operacje `GET /transaction`.
+- W widoku aplikacji kliknij operację `GET /transaction`.
 
 ![](../images/202.PNG)
 
@@ -227,14 +227,14 @@ Model danych, który załadowałeś jest odwzorowaniem schematu XML *Transaction
 - Powinieneś otrzymać odpowiedź w formacie JSON z kodem **200**.
 
 > [!IMPORTANT]
-> Jeśli nie otrzymałeś żadnej odpowiedzi, może to oznaczać, że w kolejce Q1 nie ma wiadomości, którą można pobrać. Aby uzupełnić kolejkę skopiuj plik `testedi.edi` i wklej go poniwnie w folderze `tmp`. Aplikacja monitorująca folder nadal jest uruchomiona na serwerze (z poprzedniego ćwiczenia), więc pobierze wiadomość do kolejki. Po wrzuceniu komunikatu do kolejki Q1, powtórz operacje `GET` w narzędziu Postman.
+> Jeśli nie otrzymałeś żadnej odpowiedzi, może to oznaczać, że w kolejce Q1 nie ma wiadomości, którą można pobrać. Aby uzupełnić kolejkę skopiuj plik `testedi.edi` i wklej go ponownie w folderze `tmp`. Aplikacja monitorująca folder nadal jest uruchomiona na serwerze (z poprzedniego ćwiczenia), więc pobierze wiadomość do kolejki. Po wrzuceniu komunikatu do kolejki Q1, powtórz operację `GET` w narzędziu Postman.
 
 -  Możesz prześledzieć statyski przetworzonych wiadomości w WebUI ACE, klikając zakładkę *Flow statistic*.
 
 ![](../images/205.PNG)
 
 > [!NOTE]
-> Poświęc trochę czasu na eksplorację WebUI ACE.
+> Poświęć trochę czasu na eksplorację WebUI ACE.
 
 ***KONIEC ĆWICZENIA - Gratulacje!***
 
