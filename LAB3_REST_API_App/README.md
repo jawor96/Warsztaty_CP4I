@@ -6,19 +6,19 @@
 
 ## Opis ćwiczenia
 
-W tym ćwiczeniu stworzysz aplikację REST API transactionAPI, gdzie zdefiniujesz prostą operację `GET` dla API `/transaction`. Definicje OpenAPI (v3) operacji stworzysz wykorzystując intuicyjne narzędzie *OpenAPI Editor*. W następnym kroku zaimplementujesz przepływ wiadomości, który zostanie zainicjowany po wywołaniu operacji `GET`. Przepływ pobierze wiadomość z wcześniej skonfigurowanej kolejki Q1 w formacie XML wykorzystując węzeł *MQ Get*, a nastepnie wykona mapowanie wiadomości na format JSON.
+W tym ćwiczeniu stworzysz aplikację REST API transactionAPI, gdzie zdefiniujesz prostą operację `GET` dla API `/transaction`. Definicje OpenAPI (v3) operacji stworzysz wykorzystując intuicyjne narzędzie *OpenAPI Editor*. W następnym kroku zaimplementujesz przepływ wiadomości, który zostanie zainicjowany po wywołaniu operacji `GET`. Przepływ pobierze wiadomość z wcześniej skonfigurowanej kolejki Q1 w formacie XML wykorzystując węzeł *MQ Get*, a następnie wykona mapowanie wiadomości na format JSON.
 
 ## Cele
 
 Po ukończeniu tego ćwiczenia powinieneś potrafić:
-- Stworzyć aplikacje REST API.
+- Stworzyć aplikację REST API.
 - Implementować operacje `GET` w REST API z wykorzystaniem subflow.
 - Użyć węzła *Mapping* do mapowania wiadomości w formacie XML do formatu JSON.
 - Skonfigurować węzeł *MQGet*, aby odebrać wiadomość z kolejki.
 
 ## Wstęp
 
-Firma logistyczna chce udostępnić REST API dt. transakcji, które otrzymuje od swoich partnerów biznesowych. W tym celu chce wykorzysztać system kolejkowy MQ, gdzie umieszczane są wiadomości w formacie XML dt. transakcji. Operacja REST API ma pobierać transakcje dostępne w kolejce i wyświetlać je w formacje JSON, potrzebnym do dalszgo przetwarzania transakcji.
+Firma logistyczna chce udostępnić REST API dt. transakcji, które otrzymuje od swoich partnerów biznesowych. W tym celu chce wykorzysztać system kolejkowy MQ, gdzie umieszczane są wiadomości w formacie XML dt. transakcji. Operacja REST API ma pobierać transakcje dostępne w kolejce i wyświetlać je w formacje JSON, potrzebnym do dalszego przetwarzania transakcji.
 
 ## Wymagania
 
@@ -42,7 +42,7 @@ Uruchom aplikację IBM App Connect Toolkit.
 
 ## Tworzenie aplikacji REST API transactionAPI
 
-1. Stórz nowy projekt aplikacji REST API:
+1. Stwórz nowy projekt aplikacji REST API:
 
 - Kliknij **New..**, a następnie **REST API**.
 
@@ -73,7 +73,7 @@ Uruchom aplikację IBM App Connect Toolkit.
 
 ![](../images/175.PNG)
 
-- Kliknij ikonę "**+**" przy *Operations*, aby dodać operacje `GET`.
+- Kliknij ikonę "**+**" przy *Operations*, aby dodać operację `GET`.
 
 ![](../images/176.PNG)
 
@@ -83,9 +83,9 @@ Uruchom aplikację IBM App Connect Toolkit.
 
 - Wróć do narzędzia ACET.
 
-## Implementacja operacje GET w REST API z wykorzystaniem subflow.
+## Implementacja operacji GET w REST API z wykorzystaniem subflow.
 
-1. Na stronie REST API rozwiń zakładkę *Resources and Operations*. Kliknij **Create subflow** obok operacji `GET`, aby stowrzyć przepływ operacji.
+1. Na stronie REST API rozwiń zakładkę *Resources and Operations*. Kliknij **Create subflow** obok operacji `GET`, aby stworzyć przepływ operacji.
 
 ![](../images/178.PNG)
 
@@ -113,11 +113,11 @@ Uruchom aplikację IBM App Connect Toolkit.
 4. Dodaj węzeł **MQ Header** do przepływu wyszukując go w *Palette*. Jest to węzeł, który usunie niepotrzebne w naszym przypadku nagłówki wiadomości dodane przez MQ.
 
 - Połącz terminal **Out** węzła **MQ Get** z terminalem **In** węzła **MQ Header**.
-- Kliknij na węzeł **MQ Header** i przejdź do zakładki *MQMD*. Wybierz opcje: `Delete header`.
+- Kliknij na węzeł **MQ Header** i przejdź do zakładki *MQMD*. Wybierz opcję: `Delete header`.
 
 ![](../images/182.PNG)
 
-- Przejdź do zakładki *MQDLH*. Wybierz opcje: `Delete header`.
+- Przejdź do zakładki *MQDLH*. Wybierz opcję: `Delete header`.
 
 ![](../images/183.PNG)
 
@@ -146,7 +146,7 @@ Uruchom aplikację IBM App Connect Toolkit.
 
 Model danych, który załadowałeś jest odwzorowaniem schematu XML *TransactionInstruction* w formacie JSON. Możesz podejrzeć jego strukturę klikając na niego dwa razy.
 
-7. Powtórz procedurę dodawania model danych dla schematu XML. Kliknij prawym przyciskiem myszy na projekt aplikacji.
+7. Powtórz procedurę dodawania modelu danych dla schematu XML. Kliknij prawym przyciskiem myszy na projekt aplikacji.
 
 - Kliknij **New** > **Message Model**
 
